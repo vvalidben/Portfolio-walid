@@ -144,6 +144,12 @@ ul { list-style: none; }
 
 .logo span { color: var(--accent); }
 
+.mobile-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
@@ -416,10 +422,12 @@ ul { list-style: none; }
   position: relative;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  overflow: visible;
-  z-index: 5;
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-4px);
+    overflow: visible;
+    z-index: 5;
+  }
 }
 
 .project-thumb {
@@ -445,12 +453,14 @@ ul { list-style: none; }
   transform-origin: center center;
 }
 
-.project-card:hover .project-thumb img {
-  transform: scale(2.1);
-  object-fit: contain;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-  border-radius: 6px;
-  background: var(--bg-alt);
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover .project-thumb img {
+    transform: scale(2.1);
+    object-fit: contain;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    background: var(--bg-alt);
+  }
 }
 
 .project-body { padding: 20px; }
@@ -738,12 +748,13 @@ ul { list-style: none; }
 
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
-  .nav-links, .nav-actions { display: none; }
+  .mobile-menu { display: none; }
   .menu-toggle { display: flex; }
 
-  .nav-links.open {
+  .mobile-menu.open {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     position: absolute;
     top: 70px;
     left: 0;
@@ -751,18 +762,20 @@ ul { list-style: none; }
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     padding: 20px 24px;
+    gap: 20px;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open .nav-links {
+    display: flex;
+    flex-direction: column;
     gap: 16px;
   }
 
-  .nav-actions.open {
+  .mobile-menu.open .nav-actions {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    top: calc(70px + 190px);
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    padding: 0 24px 20px;
     gap: 16px;
   }
 

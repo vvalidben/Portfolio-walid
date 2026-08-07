@@ -1,17 +1,14 @@
 // Mobile nav toggle
 const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-const navActions = document.querySelector('.nav-actions');
+const mobileMenu = document.getElementById('mobileMenu');
 
 menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  navActions.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
 });
 
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navActions.classList.remove('open');
+    mobileMenu.classList.remove('open');
   });
 });
 
