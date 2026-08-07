@@ -133,13 +133,13 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   height: 70px;
 }
 
 .logo {
   font-size: 1.3rem;
   font-weight: 800;
-  white-space: nowrap;
 }
 
 .logo span { color: var(--accent); }
