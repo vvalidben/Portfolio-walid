@@ -139,6 +139,7 @@ ul { list-style: none; }
 .logo {
   font-size: 1.3rem;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .logo span { color: var(--accent); }
