@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Walid Benhachimi — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #000000;
+    font-size: 9.2pt;
+    line-height: 1.45;
+  }
+
+  h1, h2 { font-family: "Space Grotesk", "Inter", sans-serif; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 20mm 18mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #000000;
+  }
+
+  .name {
+    font-size: 21pt;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    color: #000000;
+  }
+
+  .subtitle {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 10.2pt;
+    color: #000000;
+    margin-top: 5px;
+  }
+
+  .tagline {
+    font-size: 8.6pt;
+    color: #4d4d4d;
+    margin-top: 6px;
+    max-width: 440px;
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 8.6pt;
+    color: #000000;
+    flex-shrink: 0;
+    line-height: 1.65;
+    white-space: nowrap;
+  }
+
+  /* ===== Section rows ===== */
+  .sections {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .section-row {
+    display: flex;
+    gap: 12mm;
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .section-row:last-child { border-bottom: none; }
+
+  .section-label {
+    width: 34mm;
+    flex-shrink: 0;
+    font-size: 8.8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #000000;
+    padding-top: 1px;
+  }
+
+  .section-content { flex: 1; min-width: 0; }
+
+  .entry { margin-bottom: 7px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-title { font-size: 9.2pt; font-weight: 700; }
+
+  .entry-meta {
+    font-size: 8pt;
+    color: #4d4d4d;
+    margin-bottom: 2px;
+  }
+
+  .section-content ul {
+    padding-left: 13px;
+    margin-top: 2px;
+  }
+
+  .section-content li {
+    font-size: 8.8pt;
+    color: #000000;
+    list-style: disc;
+    margin-bottom: 2px;
+  }
+
+  .section-content p { font-size: 8.8pt; color: #000000; margin-bottom: 3px; }
+  .section-content p:last-child { margin-bottom: 0; }
+
+  .lang-line { font-size: 8.8pt; margin-bottom: 2px; }
+  .lang-line span { color: #4d4d4d; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="name">Walid Benhachimi</div>
+      <div class="subtitle">Ingénieur en Cybersécurité et Systèmes Informatiques</div>
+      <div class="tagline">Passionné par la cybersécurité offensive, le pentesting web et la sécurisation des systèmes numériques.</div>
+    </div>
+    <div class="contact">
+      +212 644 972 403<br>
+      benhachimiwalid2@gmail.com<br>
+      linkedin: walid benhachimi<br>
+      github: vvalidben<br>
+      Rabat, Temara
+    </div>
+  </div>
+
+  <div class="sections">
+  <div class="section-row">
+    <div class="section-label">Formations</div>
+    <div class="section-content">
+      <ul>
+        <li>2022–2027 _ Cycle Préparatoire Ingénieur &amp; Diplôme d'Ingénieur, Cybersécurité &amp; Systèmes d'Information – École Marocaine des Sciences de l'Ingénieur (RABAT).</li>
+        <li>2021–2022 _ Baccalauréat Sciences Physiques et Chimiques – Al-Ghazali High School (TEMARA).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="section-label">Expériences<br>Professionnelles</div>
+    <div class="section-content">
+      <div class="entry">
+        <div class="entry-title">"Yiwu Sealand Import Export" Stage – Automatisation de la détection des vulnérabilités XSS</div>
+        <div class="entry-meta">2025 – 2026 · Année 4</div>
+        <ul>
+          <li>Framework d'automatisation pour la détection des vulnérabilités XSS, intégrant Playwright, XSStrike et DalFox pour l'exécution de scans DAST.</li>
+          <li>Tableau de bord de scan avec historique des analyses et génération automatique de rapports PDF.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-title">"YZY Digital Technologies" Summer Internship – Déploiement Cloud &amp; DevSecOps</div>
+        <div class="entry-meta">2024 – 2025 · Année 3</div>
+        <ul>
+          <li>Déploiement d'une application dans le cloud avec Docker et Kubernetes, selon les pratiques DevSecOps.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Projet Académique (PFA) – Architecture de Supervision et Détection des Menaces</div>
+        <div class="entry-meta">Année 4 · Prometheus, Grafana, Node Exporter</div>
+        <ul>
+          <li>Mise en place d'une architecture de supervision et de détection des menaces suivant une approche de sécurité défensive.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Projet Académique (PFA) – Gestion du Service Après-Vente</div>
+        <div class="entry-meta">Année 3 · Python, Django</div>
+        <ul>
+          <li>Conception et développement d'une application de gestion du service après-vente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="section-label">Compétences</div>
+    <div class="section-content">
+      <ul>
+        <li>Langages : Python, Java, C++, JavaScript, HTML/CSS.</li>
+        <li>Frameworks : Django, Laravel, React, Node.js.</li>
+        <li>DevOps &amp; Systèmes : Docker, Kubernetes, Git/GitHub, Linux, VS Code.</li>
+        <li>Sécurité : Vulnerability Assessment, Web App Security (OWASP), Network Security, System Hardening.</li>
+        <li>Outils de sécurité : Playwright, XSStrike, DalFox, Burp Suite, sqlmap, Wireshark.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="section-label">Certifications</div>
+    <div class="section-content">
+      <p>19 certificats obtenus sur Coursera, délivrés par Google, Meta, IBM et des universités partenaires (EPFL, HKUST, Johns Hopkins, University of Michigan, École Polytechnique), couvrant l'administration Linux &amp; cloud, l'ingénierie logicielle, la data science et la gestion de projet.</p>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="section-label">Langues</div>
+    <div class="section-content">
+      <div class="lang-line">Arabe : C2 <span>(langue maternelle)</span> &nbsp;·&nbsp; Anglais : B2 <span>(avancé)</span> &nbsp;·&nbsp; Français : B2 <span>(avancé)</span></div>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+</body>
+</html>
