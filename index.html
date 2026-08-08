@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 <link rel="icon" href="data:,">
 </head>
 <body>
@@ -461,7 +461,7 @@
       <a href="tel:+212644972403">+212 644 972 403</a>
     </div>
 
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzepddzy" method="POST">
       <div class="form-row">
         <input type="text" name="name" class="i18n" data-fr="Votre Nom" data-i18n-attr="placeholder" placeholder="Your Name" required>
         <input type="email" name="email" class="i18n" data-fr="Votre Email" data-i18n-attr="placeholder" placeholder="Your Email" required>
@@ -469,6 +469,7 @@
       <input type="text" name="subject" class="i18n" data-fr="Sujet" data-i18n-attr="placeholder" placeholder="Subject">
       <textarea name="message" rows="5" class="i18n" data-fr="Votre Message" data-i18n-attr="placeholder" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn btn-primary i18n" data-fr="Envoyer le Message">Send Message</button>
+      <p class="form-status i18n" id="formStatus" data-fr="Message envoyé — merci ! Je vous répondrai bientôt." hidden>Message sent — thank you! I'll get back to you soon.</p>
     </form>
   </div>
 </section>
@@ -488,6 +489,6 @@
 
 <script src="js/theme.js?v=1"></script>
 <script src="js/i18n.js?v=1"></script>
-<script src="js/script.js?v=2"></script>
+<script src="js/script.js?v=3"></script>
 </body>
 </html>

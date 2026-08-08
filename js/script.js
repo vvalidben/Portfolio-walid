@@ -48,9 +48,32 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && certModalOverlay.classList.contains('open')) closeCertModal();
 });
 
-// Contact form (placeholder submit handler)
+// Contact form (submits to Formspree)
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  alert('This form is not connected to a backend yet. Please email benhachimiwalid2@gmail.com directly, or wire this form up to a service like Formspree/EmailJS.');
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  formStatus.hidden = true;
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (response.ok) {
+      contactForm.reset();
+      formStatus.hidden = false;
+    } else {
+      alert("Something went wrong sending your message — please email benhachimiwalid2@gmail.com directly.");
+    }
+  } catch (err) {
+    alert("Something went wrong sending your message — please email benhachimiwalid2@gmail.com directly.");
+  } finally {
+    submitBtn.disabled = false;
+  }
 });

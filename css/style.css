@@ -695,9 +695,10 @@ ul { list-style: none; }
 
 .contact-form button { align-self: flex-start; }
 
-.form-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+.form-status {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a9c5c;
 }
 
 /* ===== Footer ===== */
