@@ -106,6 +106,7 @@ ul { list-style: none; }
 }
 
 .placeholder-tag {
+  display: inline-block;
   font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -116,6 +117,7 @@ ul { list-style: none; }
   border-radius: 20px;
   margin-left: 8px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 /* ===== Navbar ===== */
