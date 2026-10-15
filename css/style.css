@@ -274,24 +274,24 @@ main { position: relative; z-index: 1; }
   transform: translate(70vw, 30vh);
 }
 .hero-inner { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; padding: 120px var(--gutter) 48px; }
-.hero-top { position: relative; }
+.hero-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: end;
+}
+.hero-text { min-width: 0; container-type: inline-size; }
 .hero-plate {
-  position: absolute;
-  right: 0;
-  top: -2%;
-  z-index: 0;
   width: clamp(130px, 23vw, 330px);
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border: 1px solid var(--line);
 }
 .hero-plate img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transform: scale(1.12); }
-.hero-eyebrow { position: relative; z-index: 2; margin-bottom: 18px; }
+.hero-eyebrow { margin-bottom: 18px; }
 .hero-name {
-  position: relative;
-  z-index: 2;
   font-weight: 500;
-  font-size: clamp(44px, 14vw, 216px);
+  font-size: min(216px, 18.5cqi);
   line-height: .86;
   letter-spacing: -0.055em;
   margin: 0 0 0 -0.055em;
@@ -697,6 +697,8 @@ main { position: relative; z-index: 1; }
 
 /* ===== Small screens ===== */
 @media (max-width: 640px) {
+  .hero-top { grid-template-columns: minmax(0, 1fr); }
+  .hero-plate { order: -1; }
   .nav { gap: 18px; }
   .nav-links { gap: 18px; }
   .project-toggle { grid-template-columns: 36px minmax(0, 1fr); gap: 10px 14px; }
