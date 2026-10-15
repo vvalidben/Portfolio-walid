@@ -2,507 +2,285 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Walid Benhachimi | Portfolio</title>
-<meta name="description" content="Portfolio of Walid Benhachimi">
+<meta name="description" content="Portfolio of Walid Benhachimi — Cybersecurity Engineer, Penetration Tester, DevSecOps.">
 <script>
   (function () {
-    var saved = localStorage.getItem('theme');
-    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    var t = null;
+    try { t = localStorage.getItem('wb-portfolio-theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
   })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css?v=6">
 <link rel="icon" href="data:,">
+<noscript><style>.loader{display:none}</style></noscript>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<header class="navbar" id="navbar">
-  <div class="container nav-inner">
-    <a href="#home" class="logo">Walid Benhachimi<span>.</span></a>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-top"><span data-l="a"></span><span>Portfolio</span></div>
+  <div class="loader-bottom"><span class="loader-name" data-l="n"></span><span class="loader-count" data-l="c">000</span></div>
+  <div class="loader-bar" data-l="b"></div>
+</div>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <nav class="nav-links" id="navLinks">
-        <a href="#education" class="i18n" data-fr="Formation">Education</a>
-        <a href="#about" class="i18n" data-fr="À propos">About</a>
-        <a href="#skills" class="i18n" data-fr="Compétences">Skills</a>
-        <a href="#projects" class="i18n" data-fr="Projets">Projects</a>
-        <a href="#certifications" class="i18n" data-fr="Certifications">Certifications</a>
-        <a href="#experience" class="i18n" data-fr="Expérience">Experience</a>
-        <a href="#contact" class="i18n" data-fr="Contact">Contact</a>
-      </nav>
+<canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
-      <div class="nav-actions">
-        <a href="https://github.com/vvalidben" target="_blank" rel="noopener" aria-label="GitHub" class="icon-link">GitHub</a>
-        <a href="https://www.linkedin.com/in/walid-benhachimi-318214273/" target="_blank" rel="noopener" aria-label="LinkedIn" class="icon-link">LinkedIn</a>
-        <button type="button" id="langToggle" class="icon-link lang-toggle" aria-label="Switch language">FR</button>
-        <button type="button" id="themeToggle" class="icon-link theme-toggle" aria-label="Toggle dark mode">🌙</button>
-      </div>
+<header class="site-header">
+  <nav class="nav">
+    <a href="#home" class="nav-brand">W.B</a>
+    <div class="nav-links">
+      <a href="#about" data-nav="about" class="i18n" data-fr="À propos">About</a>
+      <a href="#skills" data-nav="skills" class="i18n" data-fr="Compétences">Skills</a>
+      <a href="#projects" data-nav="projects" class="i18n" data-fr="Projets">Projects</a>
+      <a href="#path" data-nav="path" class="i18n" data-fr="Parcours">Path</a>
+      <a href="#certifications" data-nav="certifications">Certifications</a>
+      <a href="#contact" data-nav="contact">Contact</a>
     </div>
-
-    <button class="menu-toggle i18n" id="menuToggle" data-fr="Basculer le menu" data-i18n-attr="aria-label" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+    <button type="button" class="btn lang-btn" id="langBtn" aria-label="Switch language">FR</button>
+    <button type="button" class="btn btn-icon theme-btn" id="themeBtn" aria-label="Toggle light / dark">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
     </button>
-  </div>
+  </nav>
 </header>
+<div class="progress" id="progress"></div>
 
-<!-- ===== HERO ===== -->
-<section id="home" class="hero">
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <p class="hero-eyebrow i18n" data-fr="Bonjour, je m'appelle">Hi, my name is</p>
-      <h1>Walid Benhachimi</h1>
-      <h2 class="i18n" data-fr="Ingénieur en Cybersécurité | Pentester | DevSecOps">Cybersecurity Engineer | Penetration Tester | DevSecOps</h2>
-      <p class="hero-intro i18n" data-fr="Étudiant ingénieur en informatique orienté cybersécurité et tests d'intrusion, avec un fort intérêt pour l'identification des vulnérabilités, la sécurisation des systèmes numériques, l'intégration de la sécurité dans les pipelines cloud &amp; DevSecOps, et le développement d'applications full-stack.">
-        I'm a computer science engineering student oriented toward cybersecurity and
-        penetration testing, with a strong focus on identifying vulnerabilities, securing
-        digital systems, integrating security into cloud &amp; DevSecOps pipelines, and
-        building full-stack applications.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary i18n" data-fr="Voir les Projets">View Projects</a>
-        <a href="assets/cv/CV.pdf" class="btn btn-secondary i18n" data-fr="Télécharger le CV" download="Walid Benhachimi CV.pdf">Download CV</a>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <img src="assets/images/profile.jpg" alt="Walid Benhachimi" class="avatar-photo">
-    </div>
-  </div>
-</section>
+<main>
 
-<!-- ===== EDUCATION ===== -->
-<section id="education" class="section">
-  <div class="container">
-    <h2 class="section-title i18n" data-fr="Formation">Education</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="i18n" data-fr="Cycle Préparatoire Ingénieur &amp; Diplôme d'Ingénieur — Cybersécurité &amp; Systèmes d'Information">Engineering Preparatory Cycle &amp; Engineering Degree — Cybersecurity &amp; Information Systems</h3>
-          <p class="timeline-meta">École Marocaine des Sciences de l'Ingénieur (EMSI), Rabat — 2022 – 2027</p>
-        </div>
+<section id="home" class="hero" data-sec="home">
+  <div class="hero-spot" id="heroSpot" aria-hidden="true"></div>
+  <div class="hero-inner" id="heroInner">
+    <div class="hero-top">
+      <figure class="hero-plate" data-intro="plate">
+        <img id="heroImg" src="assets/images/profile.jpg" alt="Walid Benhachimi">
+      </figure>
+      <p class="eyebrow hero-eyebrow" data-intro="fade"><span class="eyebrow-line"></span><span class="i18n" data-fr="Bonjour, je m'appelle">Hi, my name is</span></p>
+      <h1 class="hero-name" id="heroName" aria-label="Walid Benhachimi">
+        <span class="line"><span data-ch>W</span><span data-ch>a</span><span data-ch>l</span><span data-ch>i</span><span data-ch>d</span></span>
+        <span class="line"><span data-ch>B</span><span data-ch>e</span><span data-ch>n</span><span data-ch>h</span><span data-ch>a</span><span data-ch>c</span><span data-ch>h</span><span data-ch>i</span><span data-ch>m</span><span data-ch>i</span><span data-ch class="dot">.</span></span>
+      </h1>
+    </div>
+    <div class="hero-rule" data-intro="rule"></div>
+    <div class="hero-bottom">
+      <div class="hero-role-wrap" data-intro="fade">
+        <p class="hero-role"><span id="role">Cybersecurity Engineer</span><span class="caret" id="caret"></span></p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3 class="i18n" data-fr="Baccalauréat — Sciences Physiques et Chimiques">Baccalaureate — Physical and Chemical Sciences</h3>
-          <p class="timeline-meta">Al-Ghazali High School, Temara — 2021 – 2022</p>
+      <div class="hero-intro" data-intro="fade">
+        <p class="i18n" data-fr="Étudiant ingénieur en informatique orienté cybersécurité et tests d'intrusion, avec un fort intérêt pour l'identification des vulnérabilités, la sécurisation des systèmes numériques, l'intégration de la sécurité dans les pipelines cloud &amp; DevSecOps, et le développement d'applications full-stack.">I'm a computer science engineering student oriented toward cybersecurity and penetration testing, with a strong focus on identifying vulnerabilities, securing digital systems, integrating security into cloud &amp; DevSecOps pipelines, and building full-stack applications.</p>
+        <div class="hero-ctas">
+          <a data-magnetic href="#projects" class="btn btn-primary btn-lg i18n" data-fr="Voir les Projets">View Projects</a>
+          <a data-magnetic href="assets/cv/CV.pdf" download="Walid Benhachimi CV.pdf" class="btn btn-outline btn-lg i18n" data-fr="Télécharger le CV">Download CV</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
-<section id="about" class="section alt-bg">
-  <div class="container about-inner">
-    <h2 class="section-title i18n" data-fr="À propos de moi">About Me</h2>
-    <p class="i18n" data-fr="Je suis ingénieur en informatique spécialisé en cybersécurité et tests d'intrusion, avec pour objectif d'identifier les vulnérabilités et de construire des systèmes résilients et sécurisés. Ce qui me motive, c'est de comprendre comment les systèmes peuvent être exploités afin de mieux les défendre — en combinant une expertise technique avec une vision stratégique pour renforcer les défenses numériques. Mes centres d'intérêt couvrent le hacking éthique, la sécurité réseau et web, l'évaluation des vulnérabilités, et la sécurité cloud, et je me tiens continuellement informé des dernières menaces et techniques de sécurité. Curieux et analytique de nature, je m'engage à développer des solutions de sécurité innovantes, à collaborer efficacement en équipe, et à contribuer à un monde numérique plus sûr et plus fiable.">
-      I'm a computer science engineer specializing in cybersecurity and penetration testing, focused on
-      identifying vulnerabilities and building resilient, secure systems. I'm driven by understanding how
-      systems can be exploited in order to defend them better — combining technical depth with a strategic
-      mindset to strengthen digital defenses. My interests span ethical hacking, network and web application
-      security, vulnerability assessment, and cloud security, and I continuously stay current with emerging
-      threats and security techniques. Curious and analytical by nature, I'm committed to building innovative
-      security solutions, collaborating effectively with teams, and contributing to a safer, more trustworthy
-      digital world.
-    </p>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-row marquee-row--outline" id="marqA">
+    <span>Penetration Testing / Web App Security / DevSecOps / Vulnerability Assessment / XSS Detection / </span><span>Penetration Testing / Web App Security / DevSecOps / Vulnerability Assessment / XSS Detection / </span>
   </div>
-</section>
-
-<!-- ===== SKILLS ===== -->
-<section id="skills" class="section">
-  <div class="container">
-    <h2 class="section-title i18n" data-fr="Compétences Techniques">Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon" style="background:#2563eb">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        </div>
-        <h3 class="i18n" data-fr="Langages de Programmation">Programming Languages</h3>
-        <ul class="skill-tags"><li>Python</li><li>Java</li><li>C++</li><li>JavaScript</li><li>HTML/CSS</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon" style="background:#0d9488">
-          <svg viewBox="0 0 24 24"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>
-        </div>
-        <h3 class="i18n" data-fr="Frameworks &amp; Bibliothèques">Frameworks &amp; Libraries</h3>
-        <ul class="skill-tags"><li>Django</li><li>Laravel</li><li>React</li><li>Node.js</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon" style="background:#d97706">
-          <svg viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
-        </div>
-        <h3 class="i18n" data-fr="DevOps &amp; Outils">DevOps &amp; Tools</h3>
-        <ul class="skill-tags"><li>Git/GitHub</li><li>Docker</li><li>Kubernetes</li><li>VS Code</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon" style="background:#7c3aed">
-          <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-        </div>
-        <h3 class="i18n" data-fr="Réseaux &amp; Sécurité">Networking &amp; Security</h3>
-        <ul class="skill-tags"><li>Linux</li><li>Network Security</li><li>System Hardening</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon" style="background:#e11d48">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        </div>
-        <h3 class="i18n" data-fr="Cybersécurité">Cybersecurity</h3>
-        <ul class="skill-tags"><li>Vulnerability Assessment</li><li>Penetration Testing</li><li>Web App Security (OWASP)</li><li>XSS Detection (DAST)</li></ul>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon" style="background:#7c3aed">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-        </div>
-        <h3 class="i18n" data-fr="Outils de Sécurité">Security Tools</h3>
-        <ul class="skill-tags"><li>Playwright</li><li>XSStrike</li><li>DalFox</li><li>Burp Suite</li><li>sqlmap</li><li>Wireshark</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROJECTS ===== -->
-<section id="projects" class="section alt-bg">
-  <div class="container">
-    <h2 class="section-title i18n" data-fr="Projets Phares">Featured Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/monitoring-grafana.png" alt="Monitoring &amp; Detection Architecture Grafana dashboard screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3><span class="i18n" data-fr="Architecture de Supervision &amp; Détection">Monitoring &amp; Detection Architecture</span> <span class="placeholder-tag i18n" data-fr="PFA · Année 4">PFA · Year 4</span></h3>
-          <p class="i18n" data-fr="Mise en place d'une architecture de supervision et de détection des menaces suivant une approche de sécurité défensive.">Set up a monitoring and threat-detection architecture following a defensive security approach.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Prometheus, Grafana, Node Exporter</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/xss-automation-framework.png" alt="XSS Automation Framework dashboard screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3><span class="i18n" data-fr="Framework d'Automatisation XSS">XSS Automation Framework</span> <span class="placeholder-tag i18n" data-fr="Stage · Année 4">Internship · Year 4</span></h3>
-          <p class="i18n" data-fr="Outil de détection automatisée des vulnérabilités XSS avec tableau de bord et historique des scans — exécute des analyses DAST et génère des rapports PDF.">Automated XSS vulnerability detection tool with a scan dashboard and history — runs DAST scans and generates PDF reports.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Playwright, XSStrike, DalFox</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/phishing-simulation-lab.png" alt="Phishing awareness simulation login page screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3><span class="i18n" data-fr="Simulation de Phishing">Phishing Simulation Lab</span> <span class="placeholder-tag i18n" data-fr="Académique · Année 4">Academic · Year 4</span></h3>
-          <p class="i18n" data-fr="Réplique d'une page de connexion utilisée pour un exercice de simulation de phishing, dans un cadre pédagogique de sensibilisation à la sécurité.">Cloned login page built for a phishing simulation exercise, in an educational security-awareness context.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/after-sales-management.png" alt="After-Sales Service Management app screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3><span class="i18n" data-fr="Gestion du Service Après-Vente">After-Sales Service Management</span> <span class="placeholder-tag i18n" data-fr="PFA · Année 3">PFA · Year 3</span></h3>
-          <p class="i18n" data-fr="Conception et développement d'une application de gestion du service après-vente.">Design and development of an after-sales service management application.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Python, Django</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/reddit-clone.png" alt="Reddit Clone app screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3>Reddit Clone <span class="placeholder-tag i18n" data-fr="personnel">personal</span></h3>
-          <p class="i18n" data-fr="Un clone personnel de Reddit conçu pour pratiquer l'architecture front-end et la gestion d'état.">A personal clone of Reddit built to practice front-end architecture and state management.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> React</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/escape-the-missile.png" alt="Escape the Missile game screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3>Escape the Missile <span class="placeholder-tag i18n" data-fr="personnel">personal</span></h3>
-          <p class="i18n" data-fr="Un jeu personnel développé de zéro.">A personal game project built from scratch.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Java</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/task-manager.png" alt="Task Manager &amp; Reminder app screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3><span class="i18n" data-fr="Gestionnaire de Tâches &amp; Rappels">Task Manager &amp; Reminder</span> <span class="placeholder-tag i18n" data-fr="personnel">personal</span></h3>
-          <p class="i18n" data-fr="Une application de bureau pour suivre les tâches avec dates d'échéance et rappels, avec vues des tâches actives et de l'historique.">A desktop app for tracking tasks with due dates and reminders, with active and completed-history views.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Python</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/calisthenics-coach.png" alt="Calisthenics Coach app screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3>Calisthenics Coach <span class="placeholder-tag i18n" data-fr="personnel">personal</span></h3>
-          <p class="i18n" data-fr="Application de suivi d'entraînement qui génère des séances de callisthénie quotidiennes, suit les séries et la progression hebdomadaire, et fait évoluer les phases d'entraînement dans le temps.">A workout tracking app that generates daily calisthenics sessions, tracks streaks and weekly progress, and advances training phases over time.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> React, Next.js</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/football-prediction-platform.png" alt="Football Prediction Platform dashboard screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3>Football Prediction Platform <span class="placeholder-tag i18n" data-fr="personnel">personal</span></h3>
-          <p class="i18n" data-fr="Tableau de bord de pronostics footballistiques qui importe des données historiques, construit des features et expose un modèle (Elo) pour prédire les résultats des matchs à venir.">A match-forecasting dashboard that imports historical football data, builds features, and serves an Elo-based model to predict upcoming match outcomes.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Python, FastAPI</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb"><img src="assets/images/watch-tracker.png" alt="Watch Tracker dashboard screenshot" loading="lazy"></div>
-        <div class="project-body">
-          <h3>Watch Tracker <span class="placeholder-tag i18n" data-fr="personnel">personal</span></h3>
-          <p class="i18n" data-fr="Application de bureau local-first pour suivre films, séries et anime — statut de visionnage, notes personnelles et historique, le tout stocké dans une base SQLite locale.">A local-first desktop app for tracking movies, TV series, and anime — watch status, personal ratings, and history, all stored in a local SQLite database.</p>
-          <p class="project-stack"><span class="i18n" data-fr="Technologies :">Tech:</span> Electron, React, TypeScript, SQLite</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CERTIFICATIONS ===== -->
-<section id="certifications" class="section">
-  <div class="container cert-intro">
-    <h2 class="section-title i18n" data-fr="Certifications &amp; Cours">Certifications &amp; Courses</h2>
-    <p class="i18n" data-fr="20 certificats obtenus sur Coursera et lors d'exercices pratiques, couvrant le cloud &amp; Linux, la gestion de crise cyber, l'ingénierie logicielle, la data science et la gestion de projet.">20 certificates earned on Coursera and through hands-on exercises, covering cloud &amp; Linux, cyber crisis management, software engineering, data science, and project management.</p>
-    <button type="button" id="certOpenBtn" class="btn btn-primary i18n" data-fr="Voir tous les certificats (20)">View All Certificates (20)</button>
-  </div>
-</section>
-
-<div class="modal-overlay" id="certModalOverlay">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
-    <div class="modal-header">
-      <h3 id="certModalTitle" class="i18n" data-fr="Certifications &amp; Cours">Certifications &amp; Courses</h3>
-      <button type="button" id="certCloseBtn" class="modal-close i18n" data-fr="Fermer" data-i18n-attr="aria-label" aria-label="Close">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="cert-gallery">
-        <figure class="cert-item">
-          <img src="assets/certificates/kasbah-crisis-exercise.png" alt="Exercice KASBAH cyber crisis management certificate" loading="lazy">
-          <figcaption>
-            <h3>Exercice KASBAH — Gestion de Crise Cyber</h3>
-            <p class="timeline-meta">EMSI &amp; CyberSup — Sep 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/social-media-management.jpg" alt="Social Media Management certificate" loading="lazy">
-          <figcaption>
-            <h3>Social Media Management</h3>
-            <p class="timeline-meta">Meta — Jun 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/linux-rh124.jpg" alt="Administration Linux avec Red Hat RH124 certificate" loading="lazy">
-          <figcaption>
-            <h3>Administration Linux avec Red Hat RH124</h3>
-            <p class="timeline-meta">Honoris — May 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/blockchain-architecture.jpg" alt="Fundamentals of Blockchain Architecture certificate" loading="lazy">
-          <figcaption>
-            <h3>Fundamentals of Blockchain Architecture</h3>
-            <p class="timeline-meta">LearnQuest — Apr 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/google-project-management.jpg" alt="Google Project Management certificate" loading="lazy">
-          <figcaption>
-            <h3>Google Project Management <span class="placeholder-tag">Professional Cert.</span></h3>
-            <p class="timeline-meta">Google — Feb 2026 · 7 courses</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/foundations-project-management.jpg" alt="Foundations of Project Management certificate" loading="lazy">
-          <figcaption>
-            <h3>Foundations of Project Management</h3>
-            <p class="timeline-meta">Google — Nov 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/project-initiation.jpg" alt="Project Initiation: Starting a Successful Project certificate" loading="lazy">
-          <figcaption>
-            <h3>Project Initiation: Starting a Successful Project</h3>
-            <p class="timeline-meta">Google — Dec 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/project-planning.jpg" alt="Project Planning: Putting It All Together certificate" loading="lazy">
-          <figcaption>
-            <h3>Project Planning: Putting It All Together</h3>
-            <p class="timeline-meta">Google — Jan 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/project-execution.jpg" alt="Project Execution: Running the Project certificate" loading="lazy">
-          <figcaption>
-            <h3>Project Execution: Running the Project</h3>
-            <p class="timeline-meta">Google — Jan 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/agile-project-management.jpg" alt="Agile Project Management certificate" loading="lazy">
-          <figcaption>
-            <h3>Agile Project Management</h3>
-            <p class="timeline-meta">Google — Jan 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/pm-capstone.jpg" alt="Capstone: Applying Project Management in the Real World certificate" loading="lazy">
-          <figcaption>
-            <h3>Capstone: Applying Project Management in the Real World</h3>
-            <p class="timeline-meta">Google — Feb 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/accelerate-job-search-ai.jpg" alt="Accelerate Your Job Search with AI certificate" loading="lazy">
-          <figcaption>
-            <h3>Accelerate Your Job Search with AI</h3>
-            <p class="timeline-meta">Google — Feb 2026</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/react-native.jpg" alt="React Native certificate" loading="lazy">
-          <figcaption>
-            <h3>React Native</h3>
-            <p class="timeline-meta">Meta — Dec 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/react-basics.jpg" alt="React Basics certificate" loading="lazy">
-          <figcaption>
-            <h3>React Basics</h3>
-            <p class="timeline-meta">Meta — Dec 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/python-data-science.jpg" alt="Python for Data Science, AI and Development certificate" loading="lazy">
-          <figcaption>
-            <h3>Python for Data Science, AI &amp; Development</h3>
-            <p class="timeline-meta">IBM — Nov 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/recherche-documentaire.jpg" alt="La recherche documentaire certificate" loading="lazy">
-          <figcaption>
-            <h3>La recherche documentaire</h3>
-            <p class="timeline-meta">École Polytechnique — Apr 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/software-engineering.jpg" alt="Software Engineering: Software Design and Project Management certificate" loading="lazy">
-          <figcaption>
-            <h3>Software Engineering: Software Design and Project Management</h3>
-            <p class="timeline-meta">HKUST — Apr 2025</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/interactivity-javascript.jpg" alt="Interactivity with JavaScript certificate" loading="lazy">
-          <figcaption>
-            <h3>Interactivity with JavaScript</h3>
-            <p class="timeline-meta">University of Michigan — Dec 2024</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/unix-workbench.jpg" alt="The Unix Workbench certificate" loading="lazy">
-          <figcaption>
-            <h3>The Unix Workbench</h3>
-            <p class="timeline-meta">Johns Hopkins University — Dec 2024</p>
-          </figcaption>
-        </figure>
-        <figure class="cert-item">
-          <img src="assets/certificates/cpp-oop.jpg" alt="Introduction a la programmation orientee objet C++ certificate" loading="lazy">
-          <figcaption>
-            <h3>Introduction à la programmation orientée objet (C++)</h3>
-            <p class="timeline-meta">EPFL — Nov 2024</p>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
+  <div class="marquee-row marquee-row--solid" id="marqB">
+    <span>Burp Suite / Docker / Kubernetes / Linux / Python / Playwright / Wireshark / sqlmap / </span><span>Burp Suite / Docker / Kubernetes / Linux / Python / Playwright / Wireshark / sqlmap / </span>
   </div>
 </div>
 
-<!-- ===== EXPERIENCE ===== -->
-<section id="experience" class="section alt-bg">
-  <div class="container">
-    <h2 class="section-title i18n" data-fr="Expérience Professionnelle">Professional Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3><span class="i18n" data-fr="Stage">Internship</span> — Yiwu Sealand Import Export</h3>
-          <p class="timeline-meta i18n" data-fr="2025 – 2026 · Année 4">2025 – 2026 · Year 4</p>
-          <ul>
-            <li class="i18n" data-fr="Développement d'une automatisation pour la détection des attaques XSS (Cross-Site Scripting).">Built automation for detecting XSS (Cross-Site Scripting) attacks.</li>
-          </ul>
+<section id="about" class="section about" data-sec="about">
+  <p class="eyebrow about-eyebrow" data-reveal><span>01</span><span class="eyebrow-line"></span><span class="i18n" data-fr="À propos de moi">About Me</span></p>
+  <p class="about-lead" id="lead">I'm a computer science engineer specializing in cybersecurity and penetration testing, focused on identifying vulnerabilities and building resilient, secure systems.</p>
+  <div class="about-body">
+    <div class="about-spacer"></div>
+    <p data-reveal class="about-text i18n" data-fr="Ce qui me motive, c'est de comprendre comment les systèmes peuvent être exploités afin de mieux les défendre — en combinant une expertise technique avec une vision stratégique pour renforcer les défenses numériques. Mes centres d'intérêt couvrent le hacking éthique, la sécurité réseau et web, l'évaluation des vulnérabilités, et la sécurité cloud, et je me tiens continuellement informé des dernières menaces et techniques de sécurité. Curieux et analytique de nature, je m'engage à développer des solutions de sécurité innovantes, à collaborer efficacement en équipe, et à contribuer à un monde numérique plus sûr et plus fiable.">I'm driven by understanding how systems can be exploited in order to defend them better — combining technical depth with a strategic mindset to strengthen digital defenses. My interests span ethical hacking, network and web application security, vulnerability assessment, and cloud security, and I continuously stay current with emerging threats and security techniques. Curious and analytical by nature, I'm committed to building innovative security solutions, collaborating effectively with teams, and contributing to a safer, more trustworthy digital world.</p>
+  </div>
+</section>
+
+<section id="skills" class="section" data-sec="skills">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow"><span>02</span><span class="eyebrow-line"></span><span class="i18n" data-fr="Compétences">Skills</span></p>
+    <h2 data-scramble class="section-title i18n" data-fr="Compétences Techniques">Technical Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill" data-spot data-reveal="0">
+      <span class="skill-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span class="skill-num">01</span></span>
+      <h3 class="i18n" data-fr="Langages de Programmation">Programming Languages</h3>
+      <p>Python · Java · C++ · JavaScript · HTML/CSS</p>
+    </div>
+    <div class="skill" data-spot data-reveal="80">
+      <span class="skill-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg><span class="skill-num">02</span></span>
+      <h3 class="i18n" data-fr="Frameworks &amp; Bibliothèques">Frameworks &amp; Libraries</h3>
+      <p>Django · Laravel · React · Node.js</p>
+    </div>
+    <div class="skill" data-spot data-reveal="160">
+      <span class="skill-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg><span class="skill-num">03</span></span>
+      <h3 class="i18n" data-fr="DevOps &amp; Outils">DevOps &amp; Tools</h3>
+      <p>Git/GitHub · Docker · Kubernetes · VS Code</p>
+    </div>
+    <div class="skill" data-spot data-reveal="0">
+      <span class="skill-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg><span class="skill-num">04</span></span>
+      <h3 class="i18n" data-fr="Réseaux &amp; Sécurité">Networking &amp; Security</h3>
+      <p>Linux · Network Security · System Hardening</p>
+    </div>
+    <div class="skill" data-spot data-reveal="80">
+      <span class="skill-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="skill-num">05</span></span>
+      <h3 class="i18n" data-fr="Cybersécurité">Cybersecurity</h3>
+      <p>Vulnerability Assessment · Penetration Testing · Web App Security (OWASP) · XSS Detection (DAST)</p>
+    </div>
+    <div class="skill" data-spot data-reveal="160">
+      <span class="skill-top"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span class="skill-num">06</span></span>
+      <h3 class="i18n" data-fr="Outils de Sécurité">Security Tools</h3>
+      <p>Playwright · XSStrike · DalFox · Burp Suite · sqlmap · Wireshark</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section" data-sec="projects">
+  <div class="projects-head" data-reveal>
+    <div>
+      <p class="eyebrow"><span>03</span><span class="eyebrow-line"></span><span class="i18n" data-fr="Projets">Projects</span></p>
+      <h2 data-scramble class="section-title i18n" data-fr="Projets Phares">Featured Projects</h2>
+    </div>
+    <p class="count" id="projectCount">(10)</p>
+  </div>
+  <div class="project-list" id="projectList"></div>
+</section>
+
+<section id="path" class="section" data-sec="path">
+  <div class="section-head path-head" data-reveal>
+    <p class="eyebrow"><span>04</span><span class="eyebrow-line"></span><span class="i18n" data-fr="Parcours">Path</span></p>
+    <h2 data-scramble class="section-title i18n" data-fr="Expérience &amp; Formation">Experience &amp; Education</h2>
+  </div>
+  <div class="path-grid">
+    <div>
+      <h3 class="path-label i18n" data-fr="Expérience Professionnelle">Professional Experience</h3>
+      <div class="track" data-track>
+        <div class="track-line"></div>
+        <div class="track-fill" data-fill></div>
+        <div class="entry" data-reveal>
+          <span class="entry-dot"></span>
+          <p class="entry-date">2025 – 2026 · <span class="i18n" data-fr="Année 4">Year 4</span></p>
+          <h4><span class="i18n" data-fr="Stage">Internship</span> — Yiwu Sealand Import Export</h4>
+          <p class="entry-desc i18n" data-fr="Développement d'une automatisation pour la détection des attaques XSS (Cross-Site Scripting).">Built automation for detecting XSS (Cross-Site Scripting) attacks.</p>
+        </div>
+        <div class="entry" data-reveal>
+          <span class="entry-dot"></span>
+          <p class="entry-date">2024 – 2025 · <span class="i18n" data-fr="Année 3">Year 3</span></p>
+          <h4><span class="i18n" data-fr="Stage">Internship</span> — YZY Digital Technologies</h4>
+          <p class="entry-desc i18n" data-fr="Déploiement d'une application dans le cloud avec Docker et Kubernetes, selon les pratiques DevSecOps.">Deployed an application to the cloud using Docker and Kubernetes, following DevSecOps practices.</p>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3><span class="i18n" data-fr="Stage">Internship</span> — YZY Digital Technologies</h3>
-          <p class="timeline-meta i18n" data-fr="2024 – 2025 · Année 3">2024 – 2025 · Year 3</p>
-          <ul>
-            <li class="i18n" data-fr="Déploiement d'une application dans le cloud avec Docker et Kubernetes, selon les pratiques DevSecOps.">Deployed an application to the cloud using Docker and Kubernetes, following DevSecOps practices.</li>
-          </ul>
+    </div>
+    <div>
+      <h3 class="path-label i18n" data-fr="Formation">Education</h3>
+      <div class="track" data-track>
+        <div class="track-line"></div>
+        <div class="track-fill" data-fill></div>
+        <div class="entry" data-reveal>
+          <span class="entry-dot"></span>
+          <p class="entry-date">2022 – 2027</p>
+          <h4 class="i18n" data-fr="Cycle Préparatoire Ingénieur &amp; Diplôme d'Ingénieur — Cybersécurité &amp; Systèmes d'Information">Engineering Preparatory Cycle &amp; Engineering Degree — Cybersecurity &amp; Information Systems</h4>
+          <p class="entry-desc">École Marocaine des Sciences de l'Ingénieur (EMSI), Rabat</p>
+        </div>
+        <div class="entry" data-reveal>
+          <span class="entry-dot"></span>
+          <p class="entry-date">2021 – 2022</p>
+          <h4 class="i18n" data-fr="Baccalauréat — Sciences Physiques et Chimiques">Baccalaureate — Physical and Chemical Sciences</h4>
+          <p class="entry-desc">Al-Ghazali High School, Temara</p>
         </div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ===== LANGUAGES ===== -->
-<section id="languages" class="section alt-bg">
-  <div class="container">
-    <h2 class="section-title i18n" data-fr="Langues">Languages</h2>
-    <div class="languages-grid">
-      <div class="language-card">
-        <h3 class="i18n" data-fr="Arabe">Arabic</h3>
-        <p class="i18n" data-fr="Langue maternelle · C2">Native · C2</p>
-      </div>
-      <div class="language-card">
-        <h3 class="i18n" data-fr="Anglais">English</h3>
-        <p class="i18n" data-fr="Avancé · B2">Advanced · B2</p>
-      </div>
-      <div class="language-card">
-        <h3 class="i18n" data-fr="Français">French</h3>
-        <p class="i18n" data-fr="Avancé · B2">Advanced · B2</p>
-      </div>
-    </div>
+  <div class="langs">
+    <h3 data-reveal class="path-label langs-label i18n" data-fr="Langues">Languages</h3>
+    <div data-reveal="0"><p class="lang-level lang-level--accent">C2</p><p class="lang-name i18n" data-fr="Arabe">Arabic</p><p class="lang-note i18n" data-fr="Langue maternelle · C2">Native · C2</p></div>
+    <div data-reveal="100"><p class="lang-level">B2</p><p class="lang-name i18n" data-fr="Anglais">English</p><p class="lang-note i18n" data-fr="Avancé · B2">Advanced · B2</p></div>
+    <div data-reveal="200"><p class="lang-level">B2</p><p class="lang-name i18n" data-fr="Français">French</p><p class="lang-note i18n" data-fr="Avancé · B2">Advanced · B2</p></div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="section">
-  <div class="container contact-inner">
-    <h2 class="section-title i18n" data-fr="Me Contacter">Get In Touch</h2>
-    <p class="i18n" data-fr="N'hésitez pas à me contacter — je vous répondrai dès que possible.">Feel free to reach out — I'll get back to you as soon as I can.</p>
-
-    <div class="contact-details">
-      <a href="mailto:benhachimiwalid2@gmail.com">benhachimiwalid2@gmail.com</a>
-      <a href="tel:+212644972403">+212 644 972 403</a>
+<section id="certifications" class="certs" data-sec="certifications">
+  <div class="certs-head">
+    <div data-reveal>
+      <p class="eyebrow"><span>05</span><span class="eyebrow-line"></span><span>Certifications</span></p>
+      <h2 data-scramble class="section-title i18n" data-fr="Certifications &amp; Cours">Certifications &amp; Courses</h2>
     </div>
-
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzepddzy" method="POST">
-      <div class="form-row">
-        <input type="text" name="name" class="i18n" data-fr="Votre Nom" data-i18n-attr="placeholder" placeholder="Your Name" required>
-        <input type="email" name="email" class="i18n" data-fr="Votre Email" data-i18n-attr="placeholder" placeholder="Your Email" required>
-      </div>
-      <input type="text" name="subject" class="i18n" data-fr="Sujet" data-i18n-attr="placeholder" placeholder="Subject">
-      <textarea name="message" rows="5" class="i18n" data-fr="Votre Message" data-i18n-attr="placeholder" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn btn-primary i18n" data-fr="Envoyer le Message">Send Message</button>
-      <p class="form-status i18n" id="formStatus" data-fr="Message envoyé — merci ! Je vous répondrai bientôt." hidden>Message sent — thank you! I'll get back to you soon.</p>
-    </form>
+    <div class="certs-aside" data-reveal="120">
+      <p class="i18n" data-fr="20 certificats obtenus sur Coursera et lors d'exercices pratiques, couvrant le cloud &amp; Linux, la gestion de crise cyber, l'ingénierie logicielle, la data science et la gestion de projet.">20 certificates earned on Coursera and through hands-on exercises, covering cloud &amp; Linux, cyber crisis management, software engineering, data science, and project management.</p>
+      <button data-magnetic type="button" class="btn btn-primary btn-md i18n" id="certOpenBtn" data-fr="Voir tous les certificats (20)">View All Certificates (20)</button>
+    </div>
+  </div>
+  <div class="ribbon-wrap" id="ribbonWrap">
+    <div class="ribbon" id="ribbon"></div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> <span class="i18n" data-fr="Walid Benhachimi. Tous droits réservés.">Walid Benhachimi. All rights reserved.</span></p>
-    <div class="footer-links">
-      <a href="https://github.com/vvalidben" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/walid-benhachimi-318214273/" target="_blank" rel="noopener">LinkedIn</a>
+<section id="contact" class="contact" data-sec="contact">
+  <div class="contact-inner">
+    <p class="eyebrow contact-eyebrow" data-reveal><span>06</span><span class="eyebrow-line"></span><span>Contact</span></p>
+    <h2 data-scramble class="contact-title i18n" data-fr="Me Contacter">Get In Touch</h2>
+    <div class="contact-body">
+      <div class="contact-info">
+        <p data-reveal class="i18n" data-fr="N'hésitez pas à me contacter — je vous répondrai dès que possible.">Feel free to reach out — I'll get back to you as soon as I can.</p>
+        <a data-reveal="80" class="contact-email" href="mailto:benhachimiwalid2@gmail.com">benhachimiwalid2@gmail.com</a>
+        <a data-reveal="140" class="contact-phone" href="tel:+212644972403">+212 644 972 403</a>
+        <div class="socials" data-reveal="200">
+          <a data-magnetic href="https://github.com/vvalidben" target="_blank" rel="noopener" class="btn btn-social">GitHub ↗</a>
+          <a data-magnetic href="https://www.linkedin.com/in/walid-benhachimi-318214273/" target="_blank" rel="noopener" class="btn btn-social">LinkedIn ↗</a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" data-reveal="120" action="https://formspree.io/f/xzepddzy" method="POST">
+        <div class="form-row">
+          <label class="field"><span class="i18n" data-fr="Votre Nom">Your Name</span><input type="text" name="name" required></label>
+          <label class="field"><span class="i18n" data-fr="Votre Email">Your Email</span><input type="email" name="email" required></label>
+        </div>
+        <label class="field"><span class="i18n" data-fr="Sujet">Subject</span><input type="text" name="subject"></label>
+        <label class="field"><span class="i18n" data-fr="Votre Message">Your Message</span><textarea name="message" rows="4" required></textarea></label>
+        <div class="form-actions">
+          <button data-magnetic type="submit" class="btn btn-primary btn-submit" id="submitBtn"><span id="submitLabel">Send Message</span> →</button>
+          <p class="form-status" id="formStatus" role="status" hidden></p>
+        </div>
+      </form>
     </div>
+    <footer class="footer">
+      <p>© <span id="year">2026</span> <span class="i18n" data-fr="Walid Benhachimi. Tous droits réservés.">Walid Benhachimi. All rights reserved.</span></p>
+      <button type="button" class="to-top" id="toTop">↑ Top</button>
+    </footer>
   </div>
-</footer>
+</section>
+</main>
 
-<button id="backToTop" class="back-to-top i18n" data-fr="Retour en haut" data-i18n-attr="aria-label" aria-label="Back to top">&uarr;</button>
+<div class="preview" id="preview" aria-hidden="true"><img id="previewImg" alt=""></div>
 
-<script src="js/theme.js?v=1"></script>
-<script src="js/i18n.js?v=1"></script>
-<script src="js/script.js?v=3"></script>
+<div class="dialog-backdrop" id="certModal" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+    <div class="dialog-head">
+      <div class="dialog-title-wrap">
+        <h3 class="dialog-title i18n" id="certModalTitle" data-fr="Certifications &amp; Cours">Certifications &amp; Courses</h3>
+        <span class="dialog-pos" id="certPos">20</span>
+      </div>
+      <button type="button" class="btn btn-icon btn-step" id="certClose" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="cert-viewer" id="certViewer" hidden>
+      <img class="cert-viewer-img" id="certViewerImg" alt="">
+      <div class="cert-viewer-bar">
+        <div><h4 id="certViewerTitle"></h4><p id="certViewerMeta"></p></div>
+        <div class="cert-nav">
+          <button type="button" class="btn btn-ghost i18n" id="certBack" data-fr="Tous les certificats">All certificates</button>
+          <button type="button" class="btn btn-step" id="certPrev" aria-label="Previous certificate">←</button>
+          <button type="button" class="btn btn-step" id="certNext" aria-label="Next certificate">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="cert-grid" id="certGrid"></div>
+  </div>
+</div>
+
+<script src="js/main.js?v=6" defer></script>
 </body>
 </html>
