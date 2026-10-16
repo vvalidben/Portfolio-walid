@@ -12,28 +12,39 @@
     { img: 'watch-tracker', en: ['Watch Tracker', 'personal', 'A local-first desktop app for tracking movies, TV series, and anime — watch status, personal ratings, and history, all stored in a local SQLite database.'], fr: ['Watch Tracker', 'personnel', 'Application de bureau local-first pour suivre films, séries et anime — statut de visionnage, notes personnelles et historique, le tout stocké dans une base SQLite locale.'], tech: 'Electron, React, TypeScript, SQLite', alt: 'Watch Tracker dashboard screenshot' }
   ];
 
-  const CERTS = [
-    ['kasbah-crisis-exercise.png', 'Exercice KASBAH — Gestion de Crise Cyber', 'EMSI & CyberSup — Sep 2026'],
-    ['social-media-management.jpg', 'Social Media Management', 'Meta — Jun 2026'],
-    ['linux-rh124.jpg', 'Administration Linux avec Red Hat RH124', 'Honoris — May 2026'],
-    ['blockchain-architecture.jpg', 'Fundamentals of Blockchain Architecture', 'LearnQuest — Apr 2026'],
-    ['google-project-management.jpg', 'Google Project Management · Professional Cert.', 'Google — Feb 2026 · 7 courses'],
-    ['foundations-project-management.jpg', 'Foundations of Project Management', 'Google — Nov 2025'],
-    ['project-initiation.jpg', 'Project Initiation: Starting a Successful Project', 'Google — Dec 2025'],
-    ['project-planning.jpg', 'Project Planning: Putting It All Together', 'Google — Jan 2026'],
-    ['project-execution.jpg', 'Project Execution: Running the Project', 'Google — Jan 2026'],
-    ['agile-project-management.jpg', 'Agile Project Management', 'Google — Jan 2026'],
-    ['pm-capstone.jpg', 'Capstone: Applying Project Management in the Real World', 'Google — Feb 2026'],
-    ['accelerate-job-search-ai.jpg', 'Accelerate Your Job Search with AI', 'Google — Feb 2026'],
-    ['react-native.jpg', 'React Native', 'Meta — Dec 2025'],
-    ['react-basics.jpg', 'React Basics', 'Meta — Dec 2025'],
-    ['python-data-science.jpg', 'Python for Data Science, AI & Development', 'IBM — Nov 2025'],
-    ['recherche-documentaire.jpg', 'La recherche documentaire', 'École Polytechnique — Apr 2025'],
-    ['software-engineering.jpg', 'Software Engineering: Software Design and Project Management', 'HKUST — Apr 2025'],
-    ['interactivity-javascript.jpg', 'Interactivity with JavaScript', 'University of Michigan — Dec 2024'],
-    ['unix-workbench.jpg', 'The Unix Workbench', 'Johns Hopkins University — Dec 2024'],
-    ['cpp-oop.jpg', 'Introduction à la programmation orientée objet (C++)', 'EPFL — Nov 2024']
+  // Ordered by importance: groups first, then certificates within each group.
+  const CERT_GROUPS = [
+    { en: 'Cloud & Cybersecurity', fr: 'Cloud & Cybersécurité', certs: [
+      ['oracle-oci-foundations.png', 'Oracle Cloud Infrastructure Certified Foundations Associate', 'Oracle — Sep 2026 · Verified'],
+      ['kasbah-crisis-exercise.png', 'Exercice KASBAH — Gestion de Crise Cyber', 'EMSI & CyberSup — Sep 2026'],
+      ['linux-rh124.jpg', 'Administration Linux avec Red Hat RH124', 'Honoris — May 2026'],
+      ['unix-workbench.jpg', 'The Unix Workbench', 'Johns Hopkins University — Dec 2024'],
+      ['blockchain-architecture.jpg', 'Fundamentals of Blockchain Architecture', 'LearnQuest — Apr 2026']
+    ] },
+    { en: 'Software Engineering & Data', fr: 'Génie Logiciel & Data', certs: [
+      ['python-data-science.jpg', 'Python for Data Science, AI & Development', 'IBM — Nov 2025'],
+      ['software-engineering.jpg', 'Software Engineering: Software Design and Project Management', 'HKUST — Apr 2025'],
+      ['cpp-oop.jpg', 'Introduction à la programmation orientée objet (C++)', 'EPFL — Nov 2024'],
+      ['react-native.jpg', 'React Native', 'Meta — Dec 2025'],
+      ['react-basics.jpg', 'React Basics', 'Meta — Dec 2025'],
+      ['interactivity-javascript.jpg', 'Interactivity with JavaScript', 'University of Michigan — Dec 2024']
+    ] },
+    { en: 'Project Management', fr: 'Gestion de Projet', certs: [
+      ['google-project-management.jpg', 'Google Project Management · Professional Cert.', 'Google — Feb 2026 · 7 courses'],
+      ['foundations-project-management.jpg', 'Foundations of Project Management', 'Google — Nov 2025'],
+      ['project-initiation.jpg', 'Project Initiation: Starting a Successful Project', 'Google — Dec 2025'],
+      ['project-planning.jpg', 'Project Planning: Putting It All Together', 'Google — Jan 2026'],
+      ['project-execution.jpg', 'Project Execution: Running the Project', 'Google — Jan 2026'],
+      ['agile-project-management.jpg', 'Agile Project Management', 'Google — Jan 2026'],
+      ['pm-capstone.jpg', 'Capstone: Applying Project Management in the Real World', 'Google — Feb 2026']
+    ] },
+    { en: 'Other', fr: 'Autres', certs: [
+      ['accelerate-job-search-ai.jpg', 'Accelerate Your Job Search with AI', 'Google — Feb 2026'],
+      ['social-media-management.jpg', 'Social Media Management', 'Meta — Jun 2026'],
+      ['recherche-documentaire.jpg', 'La recherche documentaire', 'École Polytechnique — Apr 2025']
+    ] }
   ];
+  const CERTS = CERT_GROUPS.flatMap((g) => g.certs);
 
   const T = {
     en: {
@@ -151,6 +162,7 @@
   const ribbon = $('#ribbon');
   const certGrid = $('#certGrid');
   const certImg = (f) => 'assets/certificates/' + f;
+  const pad = (n) => String(n).padStart(2, '0');
   [0, 1].forEach((copy) => {
     CERTS.forEach(([f, title, meta], i) => {
       const card = h('button', { type: 'button', class: 'cert-card', 'data-cursor': '', 'aria-label': title },
@@ -162,17 +174,26 @@
       ribbon.append(card);
     });
   });
-  CERTS.forEach(([f, title, meta], i) => {
-    const tile = h('button', { type: 'button', class: 'cert-tile' },
-      h('span', { class: 'cert-tile-thumb' }, h('img', { src: certImg(f), alt: title, loading: 'lazy' })),
-      h('span', { class: 'cert-tile-title', text: title }),
-      h('span', { class: 'cert-tile-meta', text: meta }));
-    tile.addEventListener('click', () => selectCert(i));
-    certGrid.append(tile);
+  let certIndex = 0;
+  const groupTitles = CERT_GROUPS.map((g) => {
+    const name = h('span');
+    const grid = h('div', { class: 'cert-grid' });
+    g.certs.forEach(([f, title, meta]) => {
+      const i = certIndex++;
+      const tile = h('button', { type: 'button', class: 'cert-tile' },
+        h('span', { class: 'cert-tile-thumb' }, h('img', { src: certImg(f), alt: title, loading: 'lazy' })),
+        h('span', { class: 'cert-tile-title', text: title }),
+        h('span', { class: 'cert-tile-meta', text: meta }));
+      tile.addEventListener('click', () => selectCert(i));
+      grid.append(tile);
+    });
+    certGrid.append(h('section', { class: 'cert-group' },
+      h('h4', { class: 'cert-group-title' }, name, h('span', { class: 'cert-group-count', text: pad(g.certs.length) })),
+      grid));
+    return { name, g };
   });
 
   const certModal = $('#certModal'), certViewer = $('#certViewer'), certPos = $('#certPos');
-  const pad = (n) => String(n).padStart(2, '0');
   function renderCert() {
     const s = state.sel;
     certViewer.hidden = s == null;
@@ -239,6 +260,7 @@
       title.textContent = ti; tag.textContent = ta; desc.textContent = de;
       if (tech) tech.textContent = t.tech + ' ' + p.tech;
     });
+    groupTitles.forEach(({ name, g }) => { name.textContent = g[lang]; });
     roleIdx = 0;
     setText(roleEl, t.roles[0]);
     renderLead();

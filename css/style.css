@@ -600,6 +600,20 @@ main { position: relative; z-index: 1; }
 .cert-viewer-bar h4 { font-weight: 400; font-size: 26px; margin: 0 0 4px; color: var(--fg); }
 .cert-viewer-bar p { font-size: 13.5px; color: color-mix(in srgb, var(--fg) 62%, transparent); }
 .cert-nav { display: flex; gap: 8px; }
+.cert-groups { display: flex; flex-direction: column; gap: 44px; }
+.cert-group-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.cert-group-count { color: var(--muted); font-feature-settings: 'tnum' 1; }
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 30px 24px; }
 .cert-tile {
   all: unset;
