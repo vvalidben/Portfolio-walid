@@ -1,16 +1,20 @@
 (() => {
-  const PROJECTS = [
-    { img: 'monitoring-grafana', en: ['Monitoring & Detection Architecture', 'PFA · Year 4', 'Set up a monitoring and threat-detection architecture following a defensive security approach.'], fr: ['Architecture de Supervision & Détection', 'PFA · Année 4', "Mise en place d'une architecture de supervision et de détection des menaces suivant une approche de sécurité défensive."], tech: 'Prometheus, Grafana, Node Exporter', alt: 'Monitoring & Detection Architecture Grafana dashboard screenshot' },
+  const PROJECT_GROUPS = [
+    { en: 'Professional & Academic', fr: 'Professionnel & Académique', items: [
     { img: 'xss-automation-framework', en: ['XSS Automation Framework', 'Internship · Year 4', 'Automated XSS vulnerability detection tool with a scan dashboard and history — runs DAST scans and generates PDF reports.'], fr: ["Framework d'Automatisation XSS", 'Stage · Année 4', 'Outil de détection automatisée des vulnérabilités XSS avec tableau de bord et historique des scans — exécute des analyses DAST et génère des rapports PDF.'], tech: 'Playwright, XSStrike, DalFox', alt: 'XSS Automation Framework dashboard screenshot' },
-    { img: 'phishing-simulation-lab', en: ['Phishing Simulation Lab', 'Academic · Year 4', 'Cloned login page built for a phishing simulation exercise, in an educational security-awareness context.'], fr: ['Simulation de Phishing', 'Académique · Année 4', "Réplique d'une page de connexion utilisée pour un exercice de simulation de phishing, dans un cadre pédagogique de sensibilisation à la sécurité."], alt: 'Phishing awareness simulation login page screenshot' },
-    { img: 'after-sales-management', en: ['After-Sales Service Management', 'PFA · Year 3', 'Design and development of an after-sales service management application.'], fr: ['Gestion du Service Après-Vente', 'PFA · Année 3', "Conception et développement d'une application de gestion du service après-vente."], tech: 'Python, Django', alt: 'After-Sales Service Management app screenshot' },
+    { img: 'monitoring-grafana', en: ['Monitoring & Detection Architecture', 'PFA · Year 4', 'Set up a monitoring and threat-detection architecture following a defensive security approach.'], fr: ['Architecture de Supervision & Détection', 'PFA · Année 4', "Mise en place d'une architecture de supervision et de détection des menaces suivant une approche de sécurité défensive."], tech: 'Prometheus, Grafana, Node Exporter', alt: 'Monitoring & Detection Architecture Grafana dashboard screenshot' },    { img: 'phishing-simulation-lab', en: ['Phishing Simulation Lab', 'Academic · Year 4', 'Cloned login page built for a phishing simulation exercise, in an educational security-awareness context.'], fr: ['Simulation de Phishing', 'Académique · Année 4', "Réplique d'une page de connexion utilisée pour un exercice de simulation de phishing, dans un cadre pédagogique de sensibilisation à la sécurité."], alt: 'Phishing awareness simulation login page screenshot' },
+    { img: 'after-sales-management', en: ['After-Sales Service Management', 'PFA · Year 3', 'Design and development of an after-sales service management application.'], fr: ['Gestion du Service Après-Vente', 'PFA · Année 3', "Conception et développement d'une application de gestion du service après-vente."], tech: 'Python, Django', alt: 'After-Sales Service Management app screenshot' }
+    ] },
+    { en: 'Personal', fr: 'Personnel', items: [
     { img: 'reddit-clone', en: ['Reddit Clone', 'personal', 'A personal clone of Reddit built to practice front-end architecture and state management.'], fr: ['Reddit Clone', 'personnel', "Un clone personnel de Reddit conçu pour pratiquer l'architecture front-end et la gestion d'état."], tech: 'React', alt: 'Reddit Clone app screenshot' },
     { img: 'escape-the-missile', en: ['Escape the Missile', 'personal', 'A personal game project built from scratch.'], fr: ['Escape the Missile', 'personnel', 'Un jeu personnel développé de zéro.'], tech: 'Java', alt: 'Escape the Missile game screenshot' },
     { img: 'task-manager', en: ['Task Manager & Reminder', 'personal', 'A desktop app for tracking tasks with due dates and reminders, with active and completed-history views.'], fr: ['Gestionnaire de Tâches & Rappels', 'personnel', "Une application de bureau pour suivre les tâches avec dates d'échéance et rappels, avec vues des tâches actives et de l'historique."], tech: 'Python', alt: 'Task Manager & Reminder app screenshot' },
     { img: 'calisthenics-coach', en: ['Calisthenics Coach', 'personal', 'A workout tracking app that generates daily calisthenics sessions, tracks streaks and weekly progress, and advances training phases over time.'], fr: ['Calisthenics Coach', 'personnel', "Application de suivi d'entraînement qui génère des séances de callisthénie quotidiennes, suit les séries et la progression hebdomadaire, et fait évoluer les phases d'entraînement dans le temps."], tech: 'React, Next.js', alt: 'Calisthenics Coach app screenshot' },
     { img: 'football-prediction-platform', en: ['Football Prediction Platform', 'personal', 'A match-forecasting dashboard that imports historical football data, builds features, and serves an Elo-based model to predict upcoming match outcomes.'], fr: ['Football Prediction Platform', 'personnel', 'Tableau de bord de pronostics footballistiques qui importe des données historiques, construit des features et expose un modèle (Elo) pour prédire les résultats des matchs à venir.'], tech: 'Python, FastAPI', alt: 'Football Prediction Platform dashboard screenshot' },
     { img: 'watch-tracker', en: ['Watch Tracker', 'personal', 'A local-first desktop app for tracking movies, TV series, and anime — watch status, personal ratings, and history, all stored in a local SQLite database.'], fr: ['Watch Tracker', 'personnel', 'Application de bureau local-first pour suivre films, séries et anime — statut de visionnage, notes personnelles et historique, le tout stocké dans une base SQLite locale.'], tech: 'Electron, React, TypeScript, SQLite', alt: 'Watch Tracker dashboard screenshot' }
+    ] }
   ];
+  const PROJECTS = PROJECT_GROUPS.flatMap((g) => g.items);
 
   // Ordered by importance: groups first, then certificates within each group.
   const CERT_GROUPS = [
@@ -114,7 +118,16 @@
   // ---------- projects ----------
   const projectList = $('#projectList');
   const preview = $('#preview'), previewImg = $('#previewImg');
+  const groupStarts = new Map();
+  PROJECT_GROUPS.reduce((start, g) => { groupStarts.set(start, g); return start + g.items.length; }, 0);
+  const projectGroupTitles = [];
   const projectEls = PROJECTS.map((p, i) => {
+    if (groupStarts.has(i)) {
+      const g = groupStarts.get(i), name = h('span');
+      projectGroupTitles.push({ name, g });
+      projectList.append(h('h3', { class: 'project-group', 'data-reveal': '' }, name,
+        h('span', { class: 'project-group-count', text: String(g.items.length).padStart(2, '0') })));
+    }
     const num = String(i + 1).padStart(2, '0');
     const src = 'assets/images/' + p.img + '.png';
     const title = h('span', { class: 'project-title' });
@@ -261,6 +274,7 @@
       if (tech) tech.textContent = t.tech + ' ' + p.tech;
     });
     groupTitles.forEach(({ name, g }) => { name.textContent = g[lang]; });
+    projectGroupTitles.forEach(({ name, g }) => { name.textContent = g[lang]; });
     roleIdx = 0;
     setText(roleEl, t.roles[0]);
     renderLead();

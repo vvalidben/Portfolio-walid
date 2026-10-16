@@ -412,6 +412,22 @@ main { position: relative; z-index: 1; }
 }
 .count { font-size: 13px; letter-spacing: .1em; font-feature-settings: 'tnum' 1; color: color-mix(in srgb, var(--fg) 55%, transparent); }
 .project-list { border-bottom: 1px solid var(--line); }
+.project-group {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  padding: 0 0 18px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: 1.4;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.project + .project-group { padding-top: 64px; border-top: 1px solid var(--line); }
+.project-group-count { color: var(--muted); font-feature-settings: 'tnum' 1; }
 .project { border-top: 1px solid var(--line); }
 .project-toggle {
   all: unset;
