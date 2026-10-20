@@ -297,7 +297,7 @@ main { position: relative; z-index: 1; }
   margin: 0 0 0 -0.055em;
   color: var(--fg);
 }
-.hero-name .line { display: block; overflow: hidden; padding: 0 0 .06em .02em; }
+.hero-name .line { display: block; overflow: hidden; white-space: nowrap; padding: 0 0 .06em .02em; }
 .hero-name .line + .line { padding-bottom: .08em; }
 .hero-name [data-ch] { display: inline-block; }
 .hero-name .dot { color: var(--accent); }

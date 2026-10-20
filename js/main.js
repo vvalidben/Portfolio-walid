@@ -493,22 +493,23 @@
     if (!anim || !el.hasAttribute || !el.hasAttribute('data-ch') || el._busy) return;
     const ch = el.textContent;
     el._busy = true;
+    // Glyphs are wider than most letters: pin the width so the name never reflows.
+    el.style.width = el.getBoundingClientRect().width + 'px';
+    el.style.textAlign = 'center';
     let n = 0;
     const iv = setInterval(() => {
       el.textContent = ++n > 6 ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0];
-      if (n > 6) { clearInterval(iv); el._busy = false; }
+      if (n > 6) { clearInterval(iv); el.style.width = ''; el.style.textAlign = ''; el._busy = false; }
     }, 45);
   });
 
   // ---------- scroll-driven state ----------
-  const progress = $('#progress'), heroInner = $('#heroInner'), heroImg = $('#heroImg');
+  const progress = $('#progress'), heroImg = $('#heroImg');
   let currentSec = null;
   function tick() {
     const y = scrollY, vh = innerHeight, max = root.scrollHeight - vh;
     progress.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
     if (anim && y < vh * 1.3) {
-      heroInner.style.transform = `translateY(${(y * 0.3).toFixed(1)}px)`;
-      heroInner.style.opacity = String(Math.max(0, 1 - y / (vh * 0.85)));
       heroImg.style.transform = `scale(1.12) translateY(${(y * -0.08).toFixed(1)}px)`;
     }
     const lead = $('#lead');
