@@ -2,7 +2,8 @@
   const PROJECT_GROUPS = [
     { en: 'Professional & Academic', fr: 'Professionnel & Académique', items: [
     { img: 'xss-automation-framework', en: ['XSS Automation Framework', 'Internship · Year 4', 'Automated XSS vulnerability detection tool with a scan dashboard and history — runs DAST scans and generates PDF reports.'], fr: ["Framework d'Automatisation XSS", 'Stage · Année 4', 'Outil de détection automatisée des vulnérabilités XSS avec tableau de bord et historique des scans — exécute des analyses DAST et génère des rapports PDF.'], tech: 'Playwright, XSStrike, DalFox', alt: 'XSS Automation Framework dashboard screenshot' },
-    { img: 'monitoring-grafana', en: ['Monitoring & Detection Architecture', 'PFA · Year 4', 'Set up a monitoring and threat-detection architecture following a defensive security approach.'], fr: ['Architecture de Supervision & Détection', 'PFA · Année 4', "Mise en place d'une architecture de supervision et de détection des menaces suivant une approche de sécurité défensive."], tech: 'Prometheus, Grafana, Node Exporter', alt: 'Monitoring & Detection Architecture Grafana dashboard screenshot' },    { img: 'phishing-simulation-lab', en: ['Phishing Simulation Lab', 'Academic · Year 4', 'Cloned login page built for a phishing simulation exercise, in an educational security-awareness context.'], fr: ['Simulation de Phishing', 'Académique · Année 4', "Réplique d'une page de connexion utilisée pour un exercice de simulation de phishing, dans un cadre pédagogique de sensibilisation à la sécurité."], alt: 'Phishing awareness simulation login page screenshot' },
+    { img: 'monitoring-grafana', en: ['Systems Monitoring Architecture', 'PFA · Year 4', 'Set up system monitoring with Node Exporter, Prometheus and Grafana (memory, network traffic, disk space), as part of a defensive security approach.'], fr: ['Architecture de Supervision des Systèmes', 'PFA · Année 4', "Mise en place d'une supervision des systèmes avec Node Exporter, Prometheus et Grafana (mémoire, trafic réseau, espace disque), dans une approche de sécurité défensive."], tech: 'Prometheus, Grafana, Node Exporter', alt: 'Systems monitoring Grafana dashboard screenshot' },
+    { img: 'phishing-simulation-lab', en: ['Phishing Simulation Lab', 'Academic · Year 4', 'Cloned login page built for a phishing simulation exercise, in an educational security-awareness context.'], fr: ['Simulation de Phishing', 'Académique · Année 4', "Réplique d'une page de connexion utilisée pour un exercice de simulation de phishing, dans un cadre pédagogique de sensibilisation à la sécurité."], alt: 'Phishing awareness simulation login page screenshot' },
     { img: 'after-sales-management', en: ['After-Sales Service Management', 'PFA · Year 3', 'Design and development of an after-sales service management application.'], fr: ['Gestion du Service Après-Vente', 'PFA · Année 3', "Conception et développement d'une application de gestion du service après-vente."], tech: 'Python, Django', alt: 'After-Sales Service Management app screenshot' }
     ] },
     { en: 'Personal', fr: 'Personnel', items: [
@@ -55,15 +56,15 @@
       close: 'Close', tech: 'Tech:', send: 'Send Message', sending: 'Sending…',
       sent: "Message sent — thank you! I'll get back to you soon.",
       error: 'Something went wrong sending your message — please email benhachimiwalid2@gmail.com directly.',
-      roles: ['Cybersecurity Engineer', 'Penetration Tester', 'DevSecOps'],
-      lead: "I'm a computer science engineer specializing in cybersecurity and penetration testing, focused on identifying vulnerabilities and building resilient, secure systems."
+      roles: ['Cybersecurity Engineering Student', 'Application Security', 'DevSecOps'],
+      lead: "I'm a computer science engineering student specializing in cybersecurity and penetration testing, focused on identifying vulnerabilities and building resilient, secure systems."
     },
     fr: {
       close: 'Fermer', tech: 'Technologies :', send: 'Envoyer le Message', sending: 'Envoi…',
       sent: 'Message envoyé — merci ! Je vous répondrai bientôt.',
       error: "Une erreur s'est produite — écrivez-moi directement à benhachimiwalid2@gmail.com.",
-      roles: ['Ingénieur en Cybersécurité', 'Pentester', 'DevSecOps'],
-      lead: "Je suis ingénieur en informatique spécialisé en cybersécurité et tests d'intrusion, avec pour objectif d'identifier les vulnérabilités et de construire des systèmes résilients et sécurisés."
+      roles: ['Élève ingénieur en cybersécurité', 'Sécurité applicative', 'DevSecOps'],
+      lead: "Je suis élève ingénieur en informatique, spécialisé en cybersécurité et tests d'intrusion, avec pour objectif d'identifier les vulnérabilités et de construire des systèmes résilients et sécurisés."
     }
   };
 
