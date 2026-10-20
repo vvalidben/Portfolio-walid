@@ -9,8 +9,6 @@
 
   :root {
     --ink: #000000;
-    --muted: #000000;
-    --accent: #000000;
     --rule: #b5b5b5;
   }
 
@@ -23,7 +21,7 @@
     print-color-adjust: exact;
   }
 
-  a { color: var(--accent); text-decoration: none; }
+  a { color: var(--ink); text-decoration: none; }
 
   .page {
     width: 210mm;
@@ -35,9 +33,9 @@
 
   /* ===== Header ===== */
   .name { font-size: 23pt; font-weight: 700; line-height: 1.05; letter-spacing: .01em; }
-  .headline { font-size: 12pt; font-weight: 700; color: var(--accent); margin-top: 3pt; }
-  .contact { margin-top: 5pt; font-size: 9.6pt; color: var(--muted); }
-  .contact span + span::before { content: "·"; margin: 0 6pt; color: var(--ink); }
+  .headline { font-size: 12pt; font-weight: 700; margin-top: 3pt; }
+  .contact { margin-top: 5pt; font-size: 9.6pt; }
+  .contact span + span::before { content: "·"; margin: 0 6pt; }
 
   /* ===== Sections ===== */
   section { margin-top: 11pt; }
@@ -46,7 +44,6 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .07em;
-    color: var(--accent);
     padding-bottom: 2pt;
     border-bottom: 1pt solid var(--rule);
     margin-bottom: 4pt;
@@ -57,26 +54,18 @@
   .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
   .entry-title { font-weight: 700; }
   .entry-title .role { font-weight: 400; }
-  .date { flex: none; color: var(--muted); font-size: 9.6pt; }
-  .context { color: var(--muted); font-style: italic; font-size: 9.6pt; }
+  .date { flex: none; font-size: 9.6pt; }
+  .context { font-style: italic; font-size: 9.6pt; }
 
-  ul { list-style: none; margin-top: 1.5pt; }
-  li { position: relative; padding-left: 10pt; }
+  /* Native list markers keep each bullet in reading order in the PDF text layer. */
+  ul { list-style: disc; margin-top: 1.5pt; padding-left: 12pt; }
+  li { padding-left: 1pt; }
+  li::marker { font-size: 8pt; }
   li + li { margin-top: 1pt; }
-  li::before {
-    content: "";
-    position: absolute;
-    left: 2pt;
-    top: .55em;
-    width: 3pt;
-    height: 3pt;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .env { margin-top: 1.5pt; font-size: 9.6pt; color: var(--muted); }
-  .env b { color: var(--ink); font-weight: 700; }
+  .env { margin-top: 1.5pt; font-size: 9.6pt; }
 
   .label { font-weight: 700; }
+  .nowrap { white-space: nowrap; }
   .certs .entry + .entry { margin-top: 2.5pt; }
 </style>
 </head>
@@ -96,22 +85,15 @@
 
   <section>
     <h2>Profil</h2>
-    <p>Élève ingénieur en informatique, orienté cybersécurité et tests d'intrusion. Je m'intéresse particulièrement à l'identification des vulnérabilités, à la sécurisation des systèmes numériques et à l'intégration de la sécurité dans les pipelines cloud et DevSecOps, ainsi qu'au développement d'applications full-stack.</p>
+    <p>Élève ingénieur en <span class="nowrap">5ᵉ année</span> de cybersécurité à l'EMSI Rabat. J'ai conçu un pipeline automatisé de détection des vulnérabilités XSS (DAST), déployé une application sur Kubernetes dans le cloud et mis en place une supervision Prometheus/Grafana. Je recherche un stage de fin d'études (PFE) en 2027 en sécurité applicative, tests d'intrusion ou DevSecOps.</p>
   </section>
 
   <section>
     <h2>Formation</h2>
     <div class="entry">
       <div class="entry-head">
-        <p class="entry-title">Diplôme d'ingénieur — Cybersécurité et systèmes d'information <span class="role">· diplôme prévu en 2027</span></p>
+        <p class="entry-title">Diplôme d'ingénieur — Cybersécurité et systèmes d'information <span class="role">· EMSI Rabat · diplôme prévu en 2027</span></p>
         <span class="date">2022 – 2027</span>
-      </div>
-      <p class="context">École Marocaine des Sciences de l'Ingénieur (EMSI), Rabat · actuellement en 5<sup>e</sup> année</p>
-    </div>
-    <div class="entry">
-      <div class="entry-head">
-        <p class="entry-title">Baccalauréat Sciences physiques et chimiques <span class="role">· Lycée Al-Ghazali, Témara</span></p>
-        <span class="date">2022</span>
       </div>
     </div>
   </section>
@@ -124,9 +106,10 @@
         <span class="date">Juillet – septembre 2026</span>
       </div>
       <ul>
-        <li>Framework DAST de détection des vulnérabilités XSS, piloté par une interface web FastAPI (scans, suivi, historique).</li>
-        <li>Crawler Playwright (pages JavaScript, URL, formulaires, <i>sinks</i> DOM-XSS) ; XSStrike et DalFox en conteneurs Docker isolés.</li>
-        <li>Normalisation et déduplication des résultats, rapports HTML et PDF automatiques ; tests limités à une cible autorisée (OWASP Juice Shop en local).</li>
+        <li>Conçu un framework DAST de détection XSS, piloté par une interface web FastAPI (scans, suivi, historique).</li>
+        <li>Orchestré un crawler Playwright (URL, formulaires, <i>sinks</i> DOM-XSS) et XSStrike/DalFox en conteneurs Docker isolés.</li>
+        <li>Normalisé et dédupliqué les résultats des deux scanners ; généré automatiquement des rapports HTML et PDF.</li>
+        <li>Validé l'outil sur une cible autorisée (OWASP Juice Shop en local).</li>
       </ul>
       <p class="env"><b>Environnement :</b> Python, FastAPI, Playwright, XSStrike, DalFox, Docker, Jinja2, ReportLab</p>
     </div>
@@ -136,7 +119,7 @@
         <span class="date">Juillet – septembre 2025</span>
       </div>
       <ul>
-        <li>Déploiement d'une application dans le cloud : conteneurisation avec Docker et déploiement sur Kubernetes.</li>
+        <li>Conteneurisé une application avec Docker et réalisé son déploiement sur Kubernetes dans le cloud.</li>
       </ul>
     </div>
   </section>
@@ -145,20 +128,20 @@
     <h2>Projets en cybersécurité</h2>
     <div class="entry">
       <div class="entry-head">
-        <p class="entry-title">Architecture de supervision des systèmes <span class="role">— Projet académique (PFA), 4<sup>e</sup> année</span></p>
+        <p class="entry-title">Architecture de supervision des systèmes <span class="role">— Projet académique (PFA), <span class="nowrap">4ᵉ année</span></span></p>
         <span class="date">2025 – 2026</span>
       </div>
       <ul>
-        <li>Métriques système collectées par Node Exporter, stockées dans Prometheus et visualisées dans Grafana (mémoire, trafic réseau, espace disque), pour une visibilité continue dans une approche de sécurité défensive.</li>
+        <li>Mis en place une supervision Node Exporter, Prometheus et Grafana (mémoire, trafic réseau, espace disque) dans une approche de sécurité défensive.</li>
       </ul>
     </div>
     <div class="entry">
       <div class="entry-head">
-        <p class="entry-title">Laboratoire de simulation de phishing <span class="role">— Projet académique, 4<sup>e</sup> année</span></p>
+        <p class="entry-title">Laboratoire de simulation de phishing <span class="role">— Projet académique, <span class="nowrap">4ᵉ année</span> · HTML, JavaScript, Docker</span></p>
         <span class="date">2025 – 2026</span>
       </div>
       <ul>
-        <li>Page de connexion répliquée pour un exercice pédagogique de sensibilisation au phishing (HTML, JavaScript, Docker).</li>
+        <li>Conçu une page de connexion répliquée pour un exercice pédagogique autorisé de sensibilisation au phishing.</li>
       </ul>
     </div>
   </section>
@@ -167,17 +150,10 @@
     <h2>Certifications et formations complémentaires</h2>
     <div class="entry">
       <div class="entry-head">
-        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/oracle-oci-foundations.png">Oracle Cloud Infrastructure Certified Foundations Associate</a> <span class="role">— Oracle</span></p>
+        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/oracle-oci-foundations.png">Oracle Cloud Infrastructure Certified Foundations Associate</a> <span class="role">— Oracle · certification professionnelle</span></p>
         <span class="date">Septembre 2026</span>
       </div>
-      <p class="context">Certification professionnelle vérifiée · délivrée le 9 septembre 2026, valide jusqu'au 9 septembre 2028</p>
-    </div>
-    <div class="entry">
-      <div class="entry-head">
-        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/kasbah-crisis-exercise.png">Exercice KASBAH</a> <span class="role">— serious game de gestion de crise cyber, EMSI et CyberSup</span></p>
-        <span class="date">23–25 septembre 2026</span>
-      </div>
-      <p class="context">Certificat de participation · campus de Rabat, Cellule 3 (pôle Continuité d'activité)</p>
+      <p class="context">Certification vérifiée · délivrée le 9 septembre 2026, valide jusqu'au 9 septembre 2028</p>
     </div>
     <div class="entry">
       <div class="entry-head">
@@ -187,15 +163,28 @@
     </div>
     <div class="entry">
       <div class="entry-head">
-        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/unix-workbench.jpg">The Unix Workbench</a> <span class="role">— Johns Hopkins University · certificat de cours en ligne (Coursera)</span></p>
-        <span class="date">Décembre 2024</span>
+        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/python-data-science.jpg">Python for Data Science, AI &amp; Development</a> <span class="role">— IBM · certificat de cours en ligne (Coursera)</span></p>
+        <span class="date">Novembre 2025</span>
       </div>
     </div>
     <div class="entry">
       <div class="entry-head">
-        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/python-data-science.jpg">Python for Data Science, AI &amp; Development</a> <span class="role">— IBM · certificat de cours en ligne (Coursera)</span></p>
-        <span class="date">Novembre 2025</span>
+        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/unix-workbench.jpg">The Unix Workbench</a> <span class="role">— Johns Hopkins University · certificat de cours en ligne (Coursera)</span></p>
+        <span class="date">Décembre 2024</span>
       </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Activités</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/kasbah-crisis-exercise.png">Exercice KASBAH</a> <span class="role">— serious game de crise cyber, EMSI et CyberSup · certificat de participation</span></p>
+        <span class="date">23–25 septembre 2026</span>
+      </div>
+      <ul>
+        <li>Participé à 3 jours de simulation de crise (Cellule 3, pôle Continuité d'activité) : qualifier, décider et agir sous pression.</li>
+      </ul>
     </div>
   </section>
 
@@ -206,7 +195,7 @@
       <li><span class="label">Outils de sécurité :</span> Burp Suite, sqlmap, Wireshark, XSStrike, DalFox, Playwright</li>
       <li><span class="label">Systèmes et réseaux :</span> Linux, sécurité réseau, durcissement des systèmes</li>
       <li><span class="label">Déploiement et supervision :</span> Docker, Kubernetes, Git/GitHub, Prometheus, Grafana</li>
-      <li><span class="label">Développement :</span> Python (FastAPI, Django), JavaScript (React, Node.js), Java, C++</li>
+      <li><span class="label">Développement :</span> Python (FastAPI, Django), JavaScript (React, Node.js)</li>
       <li><span class="label">Langues :</span> arabe (langue maternelle), français (B2), anglais (B2)</li>
     </ul>
   </section>
