@@ -38,7 +38,7 @@
   .contact span + span::before { content: "·"; margin: 0 6pt; }
 
   /* ===== Sections ===== */
-  section { margin-top: 11pt; }
+  section { margin-top: 8.5pt; }
   h2 {
     font-size: 10.5pt;
     font-weight: 700;
@@ -85,7 +85,7 @@
 
   <section>
     <h2>Profil</h2>
-    <p>Élève ingénieur en <span class="nowrap">5ᵉ année</span> de cybersécurité à l'EMSI Rabat. J'ai conçu un pipeline automatisé de détection des vulnérabilités XSS (DAST), déployé une application sur Kubernetes dans le cloud et mis en place une supervision Prometheus/Grafana. Je recherche un stage de fin d'études (PFE) en 2027 en sécurité applicative, tests d'intrusion ou DevSecOps.</p>
+    <p>Élève ingénieur en <span class="nowrap">5ᵉ année</span> de cybersécurité à l'EMSI Rabat, orienté tests d'intrusion et sécurité web. Pratique de l'évaluation de vulnérabilités, des outils offensifs (Burp Suite, Metasploit, Nmap), de l'automatisation des tests (DAST) et du déploiement DevSecOps. Recherche un stage de fin d'études (PFE) en 2027 en tests d'intrusion, sécurité applicative ou DevSecOps.</p>
   </section>
 
   <section>
@@ -94,6 +94,12 @@
       <div class="entry-head">
         <p class="entry-title">Diplôme d'ingénieur — Cybersécurité et systèmes d'information <span class="role">· EMSI Rabat · diplôme prévu en 2027</span></p>
         <span class="date">2022 – 2027</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Baccalauréat Sciences physiques et chimiques <span class="role">· Lycée Al-Ghazali, Témara</span></p>
+        <span class="date">2022</span>
       </div>
     </div>
   </section>
@@ -107,9 +113,8 @@
       </div>
       <ul>
         <li>Conçu un framework DAST de détection XSS, piloté par une interface web FastAPI (scans, suivi, historique).</li>
-        <li>Orchestré un crawler Playwright (URL, formulaires, <i>sinks</i> DOM-XSS) et XSStrike/DalFox en conteneurs Docker isolés.</li>
-        <li>Normalisé et dédupliqué les résultats des deux scanners ; généré automatiquement des rapports HTML et PDF.</li>
-        <li>Validé l'outil sur une cible autorisée (OWASP Juice Shop en local).</li>
+        <li>Orchestré un crawler Playwright et les scanners XSStrike/DalFox dans des conteneurs Docker isolés.</li>
+        <li>Validé l'outil sur une cible autorisée (OWASP Juice Shop) ; rapports HTML et PDF générés automatiquement.</li>
       </ul>
       <p class="env"><b>Environnement :</b> Python, FastAPI, Playwright, XSStrike, DalFox, Docker, Jinja2, ReportLab</p>
     </div>
@@ -119,8 +124,10 @@
         <span class="date">Juillet – septembre 2025</span>
       </div>
       <ul>
-        <li>Conteneurisé une application avec Docker et réalisé son déploiement sur Kubernetes dans le cloud.</li>
+        <li>Conteneurisé une application avec Docker en vue de son déploiement sur AWS.</li>
+        <li>Déployé l'application sur Kubernetes avec AWS Fargate (serverless), selon les pratiques DevSecOps.</li>
       </ul>
+      <p class="env"><b>Environnement :</b> Docker, Kubernetes, AWS Fargate</p>
     </div>
   </section>
 
@@ -132,7 +139,7 @@
         <span class="date">2025 – 2026</span>
       </div>
       <ul>
-        <li>Mis en place une supervision Node Exporter, Prometheus et Grafana (mémoire, trafic réseau, espace disque) dans une approche de sécurité défensive.</li>
+        <li>Mis en place une supervision Node Exporter, Prometheus et Grafana (mémoire, réseau, disque), approche défensive.</li>
       </ul>
     </div>
     <div class="entry">
@@ -154,6 +161,12 @@
         <span class="date">Septembre 2026</span>
       </div>
       <p class="context">Certification vérifiée · délivrée le 9 septembre 2026, valide jusqu'au 9 septembre 2028</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Ethical Hacker <span class="role">— Cisco Networking Academy · formation</span></p>
+        <span class="date">En cours</span>
+      </div>
     </div>
     <div class="entry">
       <div class="entry-head">
@@ -192,10 +205,11 @@
     <h2>Compétences techniques et langues</h2>
     <ul>
       <li><span class="label">Sécurité applicative :</span> tests d'intrusion web, évaluation de vulnérabilités, OWASP, détection XSS (DAST)</li>
-      <li><span class="label">Outils de sécurité :</span> Burp Suite, sqlmap, Wireshark, XSStrike, DalFox, Playwright</li>
+      <li><span class="label">Tests d'intrusion :</span> Burp Suite, OWASP ZAP, Metasploit, sqlmap, Nmap, Nikto, Gobuster/ffuf, Hydra, John/Hashcat</li>
+      <li><span class="label">Analyse et automatisation :</span> Wireshark, XSStrike, DalFox, Playwright</li>
       <li><span class="label">Entraînement :</span> PortSwigger Web Security Academy (en cours)</li>
-      <li><span class="label">Systèmes et réseaux :</span> Linux, sécurité réseau, durcissement des systèmes</li>
-      <li><span class="label">Déploiement et supervision :</span> Docker, Kubernetes, Git/GitHub, Prometheus, Grafana</li>
+      <li><span class="label">Systèmes et supervision :</span> Kali Linux, Linux, Prometheus, Grafana, sécurité réseau, durcissement des systèmes</li>
+      <li><span class="label">Cloud et DevSecOps :</span> Docker, Kubernetes, AWS Fargate, GitHub Actions/GitLab CI, SonarQube, Git</li>
       <li><span class="label">Développement :</span> Python (FastAPI, Django), JavaScript (React, Node.js)</li>
       <li><span class="label">Langues :</span> arabe (langue maternelle), français (B2), anglais (B2)</li>
     </ul>
