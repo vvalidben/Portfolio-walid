@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Walid Benhachimi — CV</title>
+<script>if (/[?&]photo=1\b/.test(location.search)) document.documentElement.classList.add('with-photo');</script>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #000000;
+    --rule: #b5b5b5;
+  }
+
+  body {
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.28;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: var(--ink); text-decoration: none; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 12mm 15mm 11mm;
+    overflow: hidden;
+  }
+
+  /* ===== Header ===== */
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; }
+  .head-text { min-width: 0; }
+  .photo { display: none; flex: none; width: 21mm; height: 26.25mm; object-fit: cover; border: .6pt solid var(--rule); }
+  .with-photo .photo { display: block; }
+  .name { font-size: 23pt; font-weight: 700; line-height: 1.05; letter-spacing: .01em; }
+  .headline { font-size: 12pt; font-weight: 700; margin-top: 3pt; }
+  .contact { margin-top: 5pt; font-size: 9.6pt; }
+  .contact span + span::before { content: "·"; margin: 0 6pt; }
+
+  /* ===== Sections ===== */
+  section { margin-top: 8.5pt; }
+  h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    padding-bottom: 2pt;
+    border-bottom: 1pt solid var(--rule);
+    margin-bottom: 4pt;
+  }
+  p { margin: 0; }
+
+  .entry + .entry { margin-top: 5pt; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .entry-title { font-weight: 700; }
+  .entry-title .role { font-weight: 400; }
+  .date { flex: none; font-size: 9.6pt; }
+  .context { font-style: italic; font-size: 9.6pt; }
+
+  /* Native list markers keep each bullet in reading order in the PDF text layer. */
+  ul { list-style: disc; margin-top: 1.5pt; padding-left: 12pt; }
+  li { padding-left: 1pt; }
+  li::marker { font-size: 8pt; }
+  li + li { margin-top: 1pt; }
+  .env { margin-top: 1.5pt; font-size: 9.6pt; }
+
+  .label { font-weight: 700; }
+  .nowrap { white-space: nowrap; }
+  .certs .entry + .entry { margin-top: 1.5pt; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="head-text">
+    <div class="name">Walid Benhachimi</div>
+    <div class="headline">Cybersecurity Engineering Student | Application Security and DevSecOps</div>
+    <div class="contact">
+      <span>Rabat – Temara, Morocco</span><span>+212 644 972 403</span><span><a href="mailto:benhachimiwalid2@gmail.com">benhachimiwalid2@gmail.com</a></span>
+    </div>
+    <div class="contact" style="margin-top:2pt">
+      <span>Portfolio: <a href="https://vvalidben.github.io/Portfolio-walid/">vvalidben.github.io/Portfolio-walid</a></span><span>GitHub: <a href="https://github.com/vvalidben">github.com/vvalidben</a></span><span>LinkedIn: <a href="https://www.linkedin.com/in/walid-benhachimi-318214273/">walid-benhachimi</a></span>
+    </div>
+    </div>
+    <img class="photo" src="photo-cv.jpg" alt="Walid Benhachimi">
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p>Fifth-year cybersecurity engineering student at EMSI Rabat, focused on penetration testing and web security. Hands-on experience with vulnerability assessment, offensive tools (Burp Suite, Metasploit, Nmap), security test automation (DAST) and DevSecOps deployment. Seeking a 2027 final-year internship (PFE) in penetration testing, application security or DevSecOps.</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Engineering Degree — Cybersecurity and Information Systems <span class="role">· EMSI Rabat · expected 2027</span></p>
+        <span class="date">2022 – 2027</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Baccalaureate in Physical and Chemical Sciences <span class="role">· Al-Ghazali High School, Temara</span></p>
+        <span class="date">2022</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Yiwu Sealand Import Export <span class="role">— Internship: automated XSS vulnerability detection</span></p>
+        <span class="date">July – September 2026</span>
+      </div>
+      <ul>
+        <li>Designed a DAST framework for XSS detection, driven from a FastAPI web interface (scans, tracking, history).</li>
+        <li>Orchestrated a Playwright crawler and the XSStrike/DalFox scanners in isolated Docker containers.</li>
+        <li>Validated the tool on an authorized target (OWASP Juice Shop); HTML and PDF reports generated automatically.</li>
+      </ul>
+      <p class="env"><b>Stack:</b> Python, FastAPI, Playwright, XSStrike, DalFox, Docker, Jinja2, ReportLab</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">YZY Digital Technologies <span class="role">— Summer internship: cloud deployment and DevSecOps</span></p>
+        <span class="date">July – September 2025</span>
+      </div>
+      <ul>
+        <li>Containerized an application with Docker for deployment on AWS.</li>
+        <li>Deployed the application on Kubernetes with AWS Fargate (serverless), following DevSecOps practices.</li>
+      </ul>
+      <p class="env"><b>Stack:</b> Docker, Kubernetes, AWS Fargate</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cybersecurity Projects</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Systems Monitoring Architecture <span class="role">— Academic project (PFA), year 4</span></p>
+        <span class="date">2025 – 2026</span>
+      </div>
+      <ul>
+        <li>Set up monitoring with Node Exporter, Prometheus and Grafana (memory, network, disk) as part of a defensive approach.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Phishing Simulation Lab <span class="role">— Academic project, year 4 · HTML, JavaScript, Docker</span></p>
+        <span class="date">2025 – 2026</span>
+      </div>
+      <ul>
+        <li>Built a replicated login page for an authorized, educational phishing-awareness exercise.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="certs">
+    <h2>Certifications and Training</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/oracle-oci-foundations.png">Oracle Cloud Infrastructure Certified Foundations Associate</a> <span class="role">— Oracle · professional certification</span></p>
+        <span class="date">September 2026</span>
+      </div>
+      <p class="context">Verified certification · issued September 9, 2026, valid until September 9, 2028</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://coursera.org/verify/SGFZQ2C5M0JP">Foundations of Cybersecurity</a> <span class="role">— Google · online course certificate (Coursera)</span></p>
+        <span class="date">October 2026</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title">Ethical Hacker <span class="role">— Cisco Networking Academy · course</span></p>
+        <span class="date">In progress</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://coursera.org/verify/0NL9LTZA4I38">Administration Linux avec Red Hat RH124</a> <span class="role">— Honoris · online course certificate (Coursera)</span></p>
+        <span class="date">May 2026</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://coursera.org/verify/TADLF3SEH291">Python for Data Science, AI &amp; Development</a> <span class="role">— IBM · online course certificate (Coursera)</span></p>
+        <span class="date">November 2025</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://coursera.org/verify/5WN34TWV152K">The Unix Workbench</a> <span class="role">— Johns Hopkins University · online course certificate (Coursera)</span></p>
+        <span class="date">December 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Activities</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/kasbah-crisis-exercise.png">KASBAH Exercise</a> <span class="role">— cyber-crisis serious game, EMSI and CyberSup · participation certificate</span></p>
+        <span class="date">September 23–25, 2026</span>
+      </div>
+      <ul>
+        <li>Took part in a 3-day crisis simulation (Cell 3, Business Continuity unit): assess, decide and act under pressure.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Skills and Languages</h2>
+    <ul>
+      <li><span class="label">Application security:</span> web penetration testing, vulnerability assessment, OWASP, XSS detection (DAST)</li>
+      <li><span class="label">Penetration testing:</span> Burp Suite, OWASP ZAP, Metasploit, sqlmap, Nmap, Nikto, Gobuster/ffuf, Hydra, John/Hashcat</li>
+      <li><span class="label">Analysis and automation:</span> Wireshark, XSStrike, DalFox, Playwright</li>
+      <li><span class="label">Training:</span> PortSwigger Web Security Academy (in progress)</li>
+      <li><span class="label">Systems and monitoring:</span> Kali Linux, Linux, Prometheus, Grafana, network security, system hardening</li>
+      <li><span class="label">Cloud and DevSecOps:</span> Docker, Kubernetes, AWS Fargate, GitHub Actions/GitLab CI, SonarQube, Git</li>
+      <li><span class="label">Development:</span> Python (FastAPI, Django), JavaScript (React, Node.js)</li>
+      <li><span class="label">Languages:</span> Arabic (native), French (B2), English (B2)</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

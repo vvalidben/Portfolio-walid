@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Walid Benhachimi — CV</title>
+<script>if (/[?&]photo=1\b/.test(location.search)) document.documentElement.classList.add('with-photo');</script>
 <style>
   @page { size: A4; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,6 +33,10 @@
   }
 
   /* ===== Header ===== */
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 6mm; }
+  .head-text { min-width: 0; }
+  .photo { display: none; flex: none; width: 21mm; height: 26.25mm; object-fit: cover; border: .6pt solid var(--rule); }
+  .with-photo .photo { display: block; }
   .name { font-size: 23pt; font-weight: 700; line-height: 1.05; letter-spacing: .01em; }
   .headline { font-size: 12pt; font-weight: 700; margin-top: 3pt; }
   .contact { margin-top: 5pt; font-size: 9.6pt; }
@@ -73,6 +78,7 @@
 <div class="page">
 
   <header>
+    <div class="head-text">
     <div class="name">Walid Benhachimi</div>
     <div class="headline">Élève ingénieur en cybersécurité | Sécurité applicative et DevSecOps</div>
     <div class="contact">
@@ -81,6 +87,8 @@
     <div class="contact" style="margin-top:2pt">
       <span>Portfolio : <a href="https://vvalidben.github.io/Portfolio-walid/">vvalidben.github.io/Portfolio-walid</a></span><span>GitHub : <a href="https://github.com/vvalidben">github.com/vvalidben</a></span><span>LinkedIn : <a href="https://www.linkedin.com/in/walid-benhachimi-318214273/">walid-benhachimi</a></span>
     </div>
+    </div>
+    <img class="photo" src="photo-cv.jpg" alt="Walid Benhachimi">
   </header>
 
   <section>

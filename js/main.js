@@ -253,6 +253,26 @@
     if (state.sel != null && e.key === 'ArrowLeft') stepCert(-1);
   });
 
+  // ---------- CV chooser ----------
+  const cvModal = $('#cvModal');
+  let cvOpener = null;
+  function openCv(e) {
+    cvOpener = e.currentTarget;
+    cvModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    cvModal.querySelector('.cv-option').focus();
+  }
+  function closeCv() {
+    cvModal.hidden = true;
+    document.body.style.overflow = '';
+    if (cvOpener && cvOpener.focus) cvOpener.focus();
+  }
+  $('#cvOpenBtn').addEventListener('click', openCv);
+  $('#cvClose').addEventListener('click', closeCv);
+  cvModal.addEventListener('click', (e) => { if (e.target === cvModal) closeCv(); });
+  $$('.cv-option', cvModal).forEach((a) => a.addEventListener('click', () => setTimeout(closeCv, 150)));
+  addEventListener('keydown', (e) => { if (!cvModal.hidden && e.key === 'Escape') closeCv(); });
+
   // ---------- language ----------
   const roleEl = $('#role');
   let roleIdx = 0;

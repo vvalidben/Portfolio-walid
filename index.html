@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 <link rel="icon" href="data:,">
 <noscript><style>.loader{display:none}</style></noscript>
 </head>
@@ -78,7 +78,7 @@
         <p class="i18n" data-fr="Étudiant ingénieur en informatique orienté cybersécurité et tests d'intrusion, avec un fort intérêt pour l'identification des vulnérabilités, la sécurisation des systèmes numériques, l'intégration de la sécurité dans les pipelines cloud &amp; DevSecOps, et le développement d'applications full-stack.">I'm a computer science engineering student oriented toward cybersecurity and penetration testing, with a strong focus on identifying vulnerabilities, securing digital systems, integrating security into cloud &amp; DevSecOps pipelines, and building full-stack applications.</p>
         <div class="hero-ctas">
           <a data-magnetic href="#projects" class="btn btn-primary btn-lg i18n" data-fr="Voir les Projets">View Projects</a>
-          <a data-magnetic href="assets/cv/CV.pdf" download="Walid Benhachimi CV.pdf" class="btn btn-outline btn-lg i18n" data-fr="Télécharger le CV">Download CV</a>
+          <button data-magnetic type="button" id="cvOpenBtn" class="btn btn-outline btn-lg i18n" data-fr="Télécharger le CV" aria-haspopup="dialog">Download CV</button>
         </div>
       </div>
     </div>
@@ -286,6 +286,27 @@
   </div>
 </div>
 
-<script src="js/main.js?v=12" defer></script>
+<div class="dialog-backdrop" id="cvModal" hidden>
+  <div class="dialog cv-dialog" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="dialog-head">
+      <h3 class="dialog-title i18n" id="cvModalTitle" data-fr="Télécharger le CV">Download CV</h3>
+      <button type="button" class="btn btn-icon btn-step" id="cvClose" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="cv-options">
+      <div class="cv-col">
+        <p class="cv-lang">Français</p>
+        <a class="cv-option" href="assets/cv/CV-FR-photo.pdf" download="Walid Benhachimi - CV (FR, photo).pdf"><span class="i18n" data-fr="Avec photo">With photo</span><span class="cv-ext">PDF ↓</span></a>
+        <a class="cv-option" href="assets/cv/CV-FR.pdf" download="Walid Benhachimi - CV (FR).pdf"><span class="i18n" data-fr="Sans photo">Without photo</span><span class="cv-ext">PDF ↓</span></a>
+      </div>
+      <div class="cv-col">
+        <p class="cv-lang">English</p>
+        <a class="cv-option" href="assets/cv/CV-EN-photo.pdf" download="Walid Benhachimi - CV (EN, photo).pdf"><span class="i18n" data-fr="Avec photo">With photo</span><span class="cv-ext">PDF ↓</span></a>
+        <a class="cv-option" href="assets/cv/CV-EN.pdf" download="Walid Benhachimi - CV (EN).pdf"><span class="i18n" data-fr="Sans photo">Without photo</span><span class="cv-ext">PDF ↓</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js?v=13" defer></script>
 </body>
 </html>
