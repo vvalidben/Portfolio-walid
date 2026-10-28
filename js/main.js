@@ -61,7 +61,23 @@
   "linux-rh124.jpg": "https://www.coursera.org/account/accomplishments/verify/0NL9LTZA4I38",
   "unix-workbench.jpg": "https://www.coursera.org/account/accomplishments/records/5WN34TWV152K",
   "python-data-science.jpg": "https://www.coursera.org/account/accomplishments/verify/TADLF3SEH291",
-  "google-project-management.jpg": "https://www.coursera.org/account/accomplishments/specialization/RBOXY0XPQV5V"
+  "google-project-management.jpg": "https://www.coursera.org/account/accomplishments/specialization/RBOXY0XPQV5V",
+  "blockchain-architecture.jpg": "https://www.coursera.org/account/accomplishments/verify/IBBYTOAJ2XCT",
+  "cpp-oop.jpg": "https://www.coursera.org/account/accomplishments/verify/3AY9HM2J1NAB",
+  "software-engineering.jpg": "https://www.coursera.org/account/accomplishments/verify/SXK6Z0LUAOWL",
+  "react-native.jpg": "https://www.coursera.org/account/accomplishments/verify/W37DOPK321LV",
+  "react-basics.jpg": "https://www.coursera.org/account/accomplishments/verify/CZBCMM8V3AOQ",
+  "interactivity-javascript.jpg": "https://www.coursera.org/account/accomplishments/verify/IFOJBF7M72SS",
+  "foundations-project-management.jpg": "https://www.coursera.org/account/accomplishments/verify/8WECNNLALDOA",
+  "project-initiation.jpg": "https://www.coursera.org/account/accomplishments/verify/YL8DKWP14SEU",
+  "project-planning.jpg": "https://www.coursera.org/account/accomplishments/verify/2KQXC1B7X78I",
+  "project-execution.jpg": "https://www.coursera.org/account/accomplishments/verify/7V0FTKYMNLVP",
+  "agile-project-management.jpg": "https://www.coursera.org/account/accomplishments/verify/EB2YO8O76OPA",
+  "pm-capstone.jpg": "https://www.coursera.org/account/accomplishments/verify/WDVIL4GUSNUN",
+  "accelerate-job-search-ai.jpg": "https://www.coursera.org/account/accomplishments/verify/0KJT4J0325JL",
+  "social-media-management.jpg": "https://www.coursera.org/account/accomplishments/verify/JQ2Q6YKLF2AJ",
+  "recherche-documentaire.jpg": "https://www.coursera.org/account/accomplishments/verify/WR1PQ1YD9IRZ",
+  "kasbah-crisis-exercise.png": "https://kasbah.cybersup.ai/certificat/KSB26-N1TF09GT"
 };
 
   const T = {
