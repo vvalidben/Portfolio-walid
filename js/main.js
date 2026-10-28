@@ -23,6 +23,7 @@
   const CERT_GROUPS = [
     { en: 'Cloud & Cybersecurity', fr: 'Cloud & Cybersécurité', certs: [
       ['oracle-oci-foundations.png', 'Oracle Cloud Infrastructure Certified Foundations Associate', 'Oracle — Sep 2026 · Verified'],
+      ['cisco-ethical-hacker.jpg', 'Ethical Hacker', 'Cisco Networking Academy — Oct 2026'],
       ['google-foundations-cybersecurity.jpg', 'Foundations of Cybersecurity', 'Google — Oct 2026'],
       ['kasbah-crisis-exercise.png', 'Exercice KASBAH — Gestion de Crise Cyber', 'EMSI & CyberSup — Sep 2026'],
       ['linux-rh124.jpg', 'Administration Linux avec Red Hat RH124', 'Honoris — May 2026'],
