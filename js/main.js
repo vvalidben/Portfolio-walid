@@ -54,6 +54,15 @@
     ] }
   ];
   const CERTS = CERT_GROUPS.flatMap((g) => g.certs);
+  const CERT_LINKS = {
+  "oracle-oci-foundations.png": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=C50019491E5C34927D4545164870A413F1E4BC26AF9B1EFC0B3FC2835885CF60",
+  "cisco-ethical-hacker.jpg": "https://www.credly.com/badges/d37f7def-52bb-4401-9e29-320824cf016d",
+  "google-foundations-cybersecurity.jpg": "https://www.coursera.org/account/accomplishments/records/SGFZQ2C5M0JP",
+  "linux-rh124.jpg": "https://www.coursera.org/account/accomplishments/verify/0NL9LTZA4I38",
+  "unix-workbench.jpg": "https://www.coursera.org/account/accomplishments/records/5WN34TWV152K",
+  "python-data-science.jpg": "https://www.coursera.org/account/accomplishments/verify/TADLF3SEH291",
+  "google-project-management.jpg": "https://www.coursera.org/account/accomplishments/specialization/RBOXY0XPQV5V"
+};
 
   const T = {
     en: {
@@ -223,6 +232,12 @@
       $('#certViewerImg').alt = title;
       $('#certViewerTitle').textContent = title;
       $('#certViewerMeta').textContent = meta;
+      const verify = $('#certVerify');
+      const url = CERT_LINKS[f];
+      verify.hidden = !url;
+      if (url) verify.href = url;
+      else verify.removeAttribute('href');
+      verify.textContent = state.lang === 'fr' ? 'Vérifier le certificat ↗' : 'Verify certificate ↗';
     }
   }
   function openCerts(i, opener) {
@@ -290,6 +305,7 @@
       if (v != null && el.textContent !== v) setText(el, v);
     });
     root.lang = lang;
+    renderCert();
     $('#langBtn').textContent = lang === 'fr' ? 'EN' : 'FR';
     $('#certClose').setAttribute('aria-label', t.close);
     $('#submitLabel').textContent = t.send;
