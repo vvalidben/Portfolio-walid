@@ -86,15 +86,15 @@
       close: 'Close', tech: 'Tech:', send: 'Send Message', sending: 'Sending…',
       sent: "Message sent — thank you! I'll get back to you soon.",
       error: 'Something went wrong sending your message — please email benhachimiwalid2@gmail.com directly.',
-      roles: ['Cybersecurity Engineering Student', 'Application Security', 'DevSecOps'],
-      lead: "I'm a computer science engineering student specializing in cybersecurity and penetration testing, focused on identifying vulnerabilities and building resilient, secure systems."
+      roles: ['Cybersecurity Engineering Student', 'Cybersecurity & Network Infrastructure', 'Penetration Testing'],
+      lead: "Fifth-year engineering student at EMSI Rabat, specializing in cybersecurity and network infrastructure — focused on penetration testing, vulnerability assessment and securing systems and networks."
     },
     fr: {
       close: 'Fermer', tech: 'Technologies :', send: 'Envoyer le Message', sending: 'Envoi…',
       sent: 'Message envoyé — merci ! Je vous répondrai bientôt.',
       error: "Une erreur s'est produite — écrivez-moi directement à benhachimiwalid2@gmail.com.",
-      roles: ['Élève ingénieur en cybersécurité', 'Sécurité applicative', 'DevSecOps'],
-      lead: "Je suis élève ingénieur en informatique, spécialisé en cybersécurité et tests d'intrusion, avec pour objectif d'identifier les vulnérabilités et de construire des systèmes résilients et sécurisés."
+      roles: ['Élève ingénieur en cybersécurité', 'Cybersécurité & infrastructures réseaux', "Tests d'intrusion"],
+      lead: "Élève ingénieur en 5ᵉ année à l'EMSI Rabat, spécialisé en cybersécurité et infrastructures réseaux — axé sur les tests d'intrusion, l'évaluation des vulnérabilités et la sécurisation des systèmes et des réseaux."
     }
   };
 
@@ -362,7 +362,7 @@
     if (!anim) { o.remove(); return 0; }
     const c = o.querySelector('[data-l="c"]'), b = o.querySelector('[data-l="b"]');
     scramble(o.querySelector('[data-l="n"]'), 'Walid Benhachimi', 1200);
-    scramble(o.querySelector('[data-l="a"]'), 'Cybersecurity · Pentest · DevSecOps', 1400);
+    scramble(o.querySelector('[data-l="a"]'), 'Cybersecurity · Network · Pentest', 1400);
     const D = 1600, t0 = performance.now();
     const f = (now) => {
       const p = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - p, 3);
