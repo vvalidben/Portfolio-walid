@@ -160,8 +160,8 @@
         <span class="date">2026</span>
       </div>
       <ul>
-        <li>Built a SQL-injection WAF: an OpenResty (NGINX/Lua) reverse proxy combining high-precision signatures with a Random Forest model (character n-gram TF-IDF) served via ONNX Runtime.</li>
-        <li>Hardened for production with a verdict cache, circuit breaker and per-client fail-open budget; Grafana/Loki SIEM monitoring with a GeoIP threat map and n8n incident-response automation.</li>
+        <li>Built a hybrid WAF covering the OWASP Top 10 (SQL, XSS, command injection, SSRF, known exploits…): an OpenResty (NGINX/Lua) reverse proxy combining high-precision per-category signatures with a Random Forest model (character n-gram TF-IDF) served via ONNX Runtime.</li>
+        <li>Hardened with automatic IP bans, a verdict cache, circuit breaker and fail-open budget; Grafana/Loki SIEM (GeoIP threat map) and n8n incident-response automation.</li>
       </ul>
     </div>
     <div class="entry">
