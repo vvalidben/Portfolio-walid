@@ -160,8 +160,8 @@
         <span class="date">2026</span>
       </div>
       <ul>
-        <li>WAF en reverse proxy (OpenResty, NGINX/Lua) inspectant chaque requête et bloquant les attaques de l'OWASP Top 10 (injection SQL, XSS, commandes, path traversal, SSRF, Log4Shell…) via un moteur hybride : signatures regex + modèle Random Forest (TF-IDF n-grammes) en ONNX Runtime (~0,14 ms, 99,6 % de précision) pour l'injection SQL inédite.</li>
-        <li>Bans IP automatiques, limitation anti-brute-force, tableau de bord de sécurité et pipeline SIEM Grafana/Loki/Alloy ; stack conteneurisée (Docker Compose) — 100 % de détection, 0 faux positif en tests d'intrusion.</li>
+        <li>WAF en reverse proxy (OpenResty, NGINX/Lua) inspectant chaque requête et bloquant les attaques de l'OWASP Top 10 (injection SQL, XSS, commandes, path traversal, SSRF, Log4Shell…) via un moteur hybride : signatures regex + modèle Random Forest (TF-IDF n-grammes) servi en ONNX Runtime pour l'injection SQL inédite.</li>
+        <li>Bans IP automatiques, limitation anti-brute-force, tableau de bord de sécurité et pipeline SIEM Grafana/Loki/Alloy ; stack conteneurisée avec Docker Compose.</li>
       </ul>
       <p class="env"><b>Environnement :</b> Python, FastAPI, scikit-learn, ONNX Runtime, OpenResty (NGINX/Lua), Docker Compose, Grafana, Loki</p>
     </div>
