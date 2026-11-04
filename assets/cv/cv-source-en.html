@@ -160,9 +160,10 @@
         <span class="date">2026</span>
       </div>
       <ul>
-        <li>Built a hybrid WAF covering the OWASP Top 10 (SQL, XSS, command injection, SSRF, known exploits…): an OpenResty (NGINX/Lua) reverse proxy combining high-precision per-category signatures with a Random Forest model (character n-gram TF-IDF) served via ONNX Runtime.</li>
-        <li>Hardened with automatic IP bans, a verdict cache, circuit breaker and fail-open budget; Grafana/Loki SIEM (GeoIP threat map) and n8n incident-response automation.</li>
+        <li>Reverse-proxy WAF (OpenResty, NGINX/Lua) inspecting every request and blocking OWASP Top 10 attacks (SQL injection, XSS, command injection, path traversal, SSRF, Log4Shell…) through a hybrid engine: regex signatures + a Random Forest model (character n-gram TF-IDF) on ONNX Runtime (~0.14 ms, 99.6% accuracy) to catch novel SQL injection.</li>
+        <li>Automatic IP banning, brute-force rate-limiting, a live security dashboard and a Grafana/Loki/Alloy SIEM pipeline; containerized with Docker Compose — 100% attack detection, 0 false positives in pen-testing.</li>
       </ul>
+      <p class="env"><b>Stack:</b> Python, FastAPI, scikit-learn, ONNX Runtime, OpenResty (NGINX/Lua), Docker Compose, Grafana, Loki</p>
     </div>
     <div class="entry">
       <div class="entry-head">
