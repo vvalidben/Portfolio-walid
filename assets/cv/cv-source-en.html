@@ -35,14 +35,14 @@
 
   .qr {
     position: absolute;
-    right: 14mm;
-    bottom: 9mm;
-    width: 16mm;
+    right: 13mm;
+    bottom: 8mm;
+    width: 14mm;
     text-align: center;
     text-decoration: none;
     color: var(--ink);
   }
-  .qr svg { width: 16mm; height: 16mm; display: block; }
+  .qr svg { width: 14mm; height: 14mm; display: block; }
   .qr-cap { display: block; font-size: 6.5pt; letter-spacing: .06em; text-transform: uppercase; margin-top: 1.5pt; }
 
   /* ===== Header ===== */
@@ -106,7 +106,7 @@
 
   <section>
     <h2>Profile</h2>
-    <p>Fifth-year cybersecurity engineering student at EMSI Rabat, focused on penetration testing and web security. Hands-on experience with vulnerability assessment, offensive tools (Burp Suite, Metasploit, Nmap), security test automation (DAST) and DevSecOps deployment. Seeking a 2027 final-year internship (PFE) in penetration testing, application security or DevSecOps.</p>
+    <p>Fifth-year cybersecurity engineering student at EMSI Rabat, focused on penetration testing and web security. Experience in vulnerability assessment, offensive tooling, security test automation (DAST) and DevSecOps deployment. Seeking a 2027 final-year internship (PFE) in penetration testing, application security or DevSecOps.</p>
   </section>
 
   <section>
@@ -156,6 +156,16 @@
     <h2>Cybersecurity Projects</h2>
     <div class="entry">
       <div class="entry-head">
+        <p class="entry-title">Hybrid ML + regex Web Application Firewall (WAF) <span class="role">— Personal project</span></p>
+        <span class="date">2026</span>
+      </div>
+      <ul>
+        <li>Built a SQL-injection WAF: an OpenResty (NGINX/Lua) reverse proxy combining high-precision signatures with a Random Forest model (character n-gram TF-IDF) served via ONNX Runtime.</li>
+        <li>Hardened for production with a verdict cache, circuit breaker and per-client fail-open budget; Grafana/Loki SIEM monitoring with a GeoIP threat map and n8n incident-response automation.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
         <p class="entry-title">Systems Monitoring Architecture <span class="role">— Academic project (PFA), year 4</span></p>
         <span class="date">2025 – 2026</span>
       </div>
@@ -181,7 +191,6 @@
         <p class="entry-title"><a href="https://vvalidben.github.io/Portfolio-walid/assets/certificates/oracle-oci-foundations.png">Oracle Cloud Infrastructure Certified Foundations Associate</a> <span class="role">— Oracle · professional certification</span></p>
         <span class="date">September 2026</span>
       </div>
-      <p class="context">Verified certification · issued September 9, 2026, valid until September 9, 2028</p>
     </div>
     <div class="entry">
       <div class="entry-head">
@@ -199,18 +208,6 @@
       <div class="entry-head">
         <p class="entry-title"><a href="https://coursera.org/verify/0NL9LTZA4I38">Administration Linux avec Red Hat RH124</a> <span class="role">— Honoris · online course certificate (Coursera)</span></p>
         <span class="date">May 2026</span>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-head">
-        <p class="entry-title"><a href="https://coursera.org/verify/TADLF3SEH291">Python for Data Science, AI &amp; Development</a> <span class="role">— IBM · online course certificate (Coursera)</span></p>
-        <span class="date">November 2025</span>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="entry-head">
-        <p class="entry-title"><a href="https://coursera.org/verify/5WN34TWV152K">The Unix Workbench</a> <span class="role">— Johns Hopkins University · online course certificate (Coursera)</span></p>
-        <span class="date">December 2024</span>
       </div>
     </div>
   </section>
@@ -233,9 +230,8 @@
     <ul>
       <li><span class="label">Application security:</span> web penetration testing, vulnerability assessment, OWASP, XSS detection (DAST)</li>
       <li><span class="label">Penetration testing:</span> Burp Suite, OWASP ZAP, Metasploit, sqlmap, Nmap, Nikto, Gobuster/ffuf, Hydra, John/Hashcat</li>
-      <li><span class="label">Analysis and automation:</span> XSStrike, DalFox, Playwright</li>
-      <li><span class="label">Training:</span> TryHackMe, PortSwigger Web Security Academy (in progress)</li>
-      <li><span class="label">Systems and monitoring:</span> Kali Linux, Prometheus, Grafana, network security (WireGuard, Wireshark), hardening</li>
+      <li><span class="label">Tooling and training:</span> XSStrike, DalFox, Playwright · TryHackMe, PortSwigger Web Security Academy (in progress)</li>
+      <li><span class="label">Systems and monitoring:</span> Kali Linux, Prometheus, Grafana, WireGuard, Wireshark, hardening</li>
       <li><span class="label">Cloud and DevSecOps:</span> Docker, Kubernetes, AWS Fargate, Ansible, Jenkins, SonarQube, GitLab/GitHub CI</li>
       <li><span class="label">Development:</span> Python (FastAPI, Django), JavaScript (React, Node.js)</li>
       <li><span class="label">Languages:</span> Arabic (native), French (B2), English (B2)</li>
